@@ -1,0 +1,104 @@
+.header {
+    --scale-border-header: 0;
+    --height-border-header: 4px;
+    --bg-header: transparent;
+    --logo-size: 50px;
+
+    @apply sticky top-0 z-40 bg-[var(--bg-header)];
+
+    transition: background-color .2s linear;
+}
+    .header.sticking {
+        --bg-header: theme('colors.white');
+        box-shadow: theme('colors.black') 0px 0px 10px;
+    }
+
+.progress-bar {
+    @apply hidden
+    absolute -bottom-[var(--height-border-header)]
+    w-full h-[var(--height-border-header)]
+    origin-left;
+    background-image: linear-gradient(to right, theme("colors.primary"), theme("colors.secondary"), theme("colors.tertiary"));
+}
+
+
+.menuContainer {
+    @apply relative
+    flex place-content-between
+    w-full;
+    flex: 2 2 2 auto;
+}
+
+div.logo {
+    @apply relative w-[var(--logo-size)]
+    flex place-items-center justify-center;
+    
+}
+
+div.logo .logo-name {
+    @apply 
+        font-bold uppercase text-2xl
+        text-black;
+}
+    div.logo .square {
+        @apply 
+        absolute inset-0 w-[var(--logo-size)] h-[var(--logo-size)] m-auto
+        border-2 border-black rounded-lg;
+        transition: all .6s ease-in-out;
+    }
+        div.logo .square.square-1 {
+            transform: rotate(0);
+        }
+        div.logo .square.square-2 {
+            transform: rotate(25deg);
+        }
+        div.logo .square.square-3 {
+            transform: rotate(60deg);
+        }
+
+        div.logo:hover .square {
+            transform: rotate(360deg);
+        }
+
+ul.menu {
+    @apply 
+        uppercase
+        my-4
+        flex items-center gap-10;
+}
+
+ul.menu a {
+    @apply 
+        relative
+        text-sm text-dark ;
+    padding-block: 8px;
+}
+    ul.menu a::after {
+        transition: width .3s ease-in-out;
+        content: '';
+        @apply absolute bottom-0 left-0
+        w-[0%] h-1 bg-dark
+    }
+
+
+ul.menu a:hover::after {
+    @apply w-[100%];
+}
+
+div.right-menu {
+    @apply 
+        my-4
+        flex items-center gap-20;
+}
+
+div.socials {
+    @apply 
+        my-4
+        flex items-center gap-10;
+}
+
+div.socials i {
+    @apply 
+        text-base text-dark 
+            hover:text-secondary;
+}

@@ -1,0 +1,163 @@
+.hero-section {
+    @apply h-[100svh]
+    flex align-middle items-center;
+}
+
+.right-hero {
+    @apply w-full self-start;
+}
+    .technologies-container {
+        @apply relative;
+        transform: translateY(100px);
+    }
+    .technologies {
+        --circle-width: 250px;
+        --rotation-duration: 10s;
+        --margin-icons-spinning: 40px;
+        --icons-size: 40px;
+
+        --radius-spinning: calc(((var(--circle-width) / 2) + var(--margin-icons-spinning)) * -1);
+
+        @apply w-[var(--circle-width)] m-auto w-fit;
+    }
+        .technologies::after {
+            content: '';
+            @apply align-middle justify-self-center block aspect-square w-[var(--circle-width)];
+            background: radial-gradient(ellipse at center, theme('colors.lightGray') 70% , transparent 70%);
+        }
+        .technologies .icon-container {
+            @apply absolute top-[50%] left-[50%];
+            --icon-index: 1;
+        }
+        .technologies .icons {
+            @apply absolute left-0 right-0 top-0 bottom-0;
+            transform: translate(-20px, -20px);
+        }
+            .technologies .icon-container svg {
+                animation: counterSpin var(--rotation-duration) linear infinite;
+                @apply w-[var(--icons-size)] h-[var(--icons-size)];
+            }
+        .technologies .icon-container {
+            animation: spinAround var(--rotation-duration) linear infinite;
+            
+            animation-delay: calc(((var(--rotation-duration) / 10) * -1) * var(--icon-index));
+        }
+
+        @keyframes spinAround {
+            from {
+                transform: rotate(0deg) translateX(var(--radius-spinning))
+            }
+            to {
+                transform: rotate(360deg) translateX(var(--radius-spinning))
+            }
+        }
+
+        @keyframes counterSpin {
+            from {
+                transform: rotate(0deg)
+            }
+            to {
+                transform: rotate(-360deg)
+            }
+        }
+    .avatar-container {
+        
+    }
+    .hero-avatar {
+        @apply absolute z-30 w-[400px] left-0 right-0 m-auto;
+        fill: none;
+        stroke: theme('colors.black');
+        stroke-width: 1px;
+    }
+    .avatar-fills {
+        @apply absolute z-20 w-[400px] left-0 right-0 m-auto;
+        fill: none;
+        stroke: theme('colors.black');
+        stroke-width: 0px;
+    }
+
+
+.left-hero {
+    @apply w-full;
+}
+    .heading {
+        @apply 
+            text-dark -translate-y-[100px]
+    }
+
+        .heading > span {
+            @apply 
+                block 
+                text-[2rem] tracking-wider 
+                    after:border-b-2 after:border-b-dark
+                    after:inline-block
+                    after:h-2 after:w-[100px]
+        }
+
+        .heading h1 {
+            @apply text-[4rem] font-bold tracking-tight;
+        }
+
+            .heading h1 span {
+                @apply text-dark;
+            }
+
+        .heading p {
+            @apply text-[1.3rem];
+        }
+
+        .heading .call-to-action {
+            @apply mt-10;
+        }
+
+.animated-blob {
+    @apply 
+        absolute;
+        --fill: theme('colors.secondary');
+}
+    .blob-small {
+        @apply w-[100px] top-1/3 left-1/4;
+        --time: 50s;
+        --amount: 10;
+        --from: 0deg;
+        --to: 360deg;
+    }
+    .blob-medium {
+        @apply w-[300px] top-1/2 left-20;
+        --time: 35s;
+        --amount: 15;
+        --from: 360deg;
+        --to: 0deg;
+    }
+    .blob-large {
+        @apply w-[200px] top-0 right-1/3;
+        --time: 90s;
+        --amount: 15;
+        --from: 0deg;
+        --to: 360deg;
+    }
+
+.scroller {
+    @apply block absolute left-0 right-0 bottom-10 m-auto w-[40px] border-black border-[2px] rounded-full;
+    aspect-ratio: 2 / 4;
+    transition: opacity .3s linear;
+}
+    .scroller::after {
+        content: '';
+        @apply block m-auto w-[15px] rounded-full
+        bg-black;
+        aspect-ratio: 1 / 1;
+        transform: translateY(10px);
+        animation: scrollDown 1.5s linear infinite;
+    }
+
+    @keyframes scrollDown {
+        from {
+            transform: translateY(10px);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+    }

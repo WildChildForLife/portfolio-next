@@ -1,0 +1,61 @@
+.blockquote {
+    @apply my-5 text-sm italic;
+}
+
+.experiences {
+    @apply flex mt-10 gap-28;
+}
+    .list-experiences {
+        @apply flex flex-col gap-2;
+    }
+        .list-experiences li {
+            @apply flex p-4 gap-5 justify-between
+            min-w-[410px]
+            text-black bg-transparent border-2 border-black rounded-md
+            cursor-pointer;
+        }
+            .list-experiences .experience {
+                @apply flex gap-4;
+            }
+                .list-experiences .experience .company {
+                    @apply flex flex-col gap-2;
+                }
+            .list-experiences li img {
+                @apply self-start max-w-[40px];
+                object-fit: contain;
+            }
+            .list-experiences li .company-name {
+                @apply text-lg leading-none
+            }
+            .list-experiences li :is(.role, time) {
+                @apply text-xs;
+            }
+            .list-experiences li time {
+                @apply self-center;
+            }
+        .list-experiences li:hover,
+        .list-experiences li.active {
+            @apply bg-black text-white;
+        }
+        .list-experiences li:hover img,
+        .list-experiences li.active img {
+            mix-blend-mode: difference;
+        }
+.experience-description {
+}
+    .experience-description h3 {
+        @apply font-semibold text-lg mb-4;
+    }
+    .experience-description li {
+        @apply text-sm mb-2 list-disc;
+    }
+    .experience-description .tags {
+        @apply flex flex-wrap gap-2 mt-8;
+    }
+        .tags li {
+            @apply flex gap-2 
+            text-xs p-2 bg-lightGray rounded-xl;
+        }
+            .tags li svg {
+                @apply min-h-full min-w-[20px]
+            }

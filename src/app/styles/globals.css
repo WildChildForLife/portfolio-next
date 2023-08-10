@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:200,300,400,500,600,700,800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    font-family: Helvetica, Arial;
+}
+
+@import './blobz.css';
+@import './imports.css';
+
+div.call-to-action {
+    @apply text-sm my-4 flex items-center;
+}
+
+div.call-to-action button {
+    @apply border-black bg-black text-white border-2 rounded-md py-2 px-4;
+    transition: all .3s ease-in-out;
+}
+
+div.call-to-action button:hover {
+    @apply bg-white text-black;
+}
+
+.hide {
+    transition: opacity .3s linear;
+    opacity: 0;
+}
+
+h2 {
+    @apply mb-10 text-4xl leading-none font-bold;
+}
+
+section {
+    @apply mb-40;
+}

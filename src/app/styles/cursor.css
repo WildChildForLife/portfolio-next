@@ -1,0 +1,52 @@
+/* html {
+    cursor: none;
+}
+
+.cursor {
+    @apply 
+    absolute w-[40px] h-[40px] rounded-full
+    bg-black  
+    -mt-[6px] -ml-[5px] 
+    blur-[1px] 
+    z-50 
+    mix-blend-color-burn;
+} */
+
+/* .cursor:after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 60px;
+    height: 30px;
+    background: #000;
+    border-radius: 50%;
+    transform-origin: 50px 50px;
+    transform: rotate(50px);
+    -webkit-animation: rotate 3.5s ease-in-out infinite;
+            animation: rotate 3.5s ease-in-out infinite;
+    filter: blur(3px);
+  } */
+/* .cursor:before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #000;
+    border-radius: 50%;
+    transform-origin: 30px 30px;
+    transform: rotate(300px);
+    -webkit-animation: rotate 3.5s ease-in-out 2s infinite;
+    animation: rotate 3.5s ease-in-out 2s infinite;
+    filter: blur(1px);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+} */
