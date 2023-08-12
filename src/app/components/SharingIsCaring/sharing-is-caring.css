@@ -1,58 +1,55 @@
-.sharingiscaring-section {
-
+:root {
+    --article-content-bg-color: theme('colors.lightGray');
 }
 
-.sharingiscaring-section h2 ~ p {
-
+.dark {
+    --article-content-bg-color: theme('colors.dark');
 }
 
-.list-articles {
-
+.list-articles ul {
+    /* @apply flex gap-4 justify-center items-stretch*/
+    @apply overflow-y-hidden; 
 }
-    .list-articles ul {
-        /* @apply flex gap-4 justify-center items-stretch*/
-        @apply overflow-y-hidden; 
+    .list-articles article {
+        @apply w-full px-4 mx-2;
     }
-        .list-articles article {
-            @apply w-full px-4 mx-2;
+        .list-articles article > a {
+            @apply h-full block;
         }
-            .list-articles article > a {
-                @apply h-full block;
+        .list-articles .content {
+            @apply p-4 bg-[var(--article-content-bg-color)] h-full rounded-b-lg;
+        }   
+            .list-articles .img-container {
+                @apply rounded-t-lg relative
+                border-b-[theme('colors.secondary')] border-b-[6px];
             }
-            .list-articles .content {
-                @apply p-4 bg-lightGray h-full;
-            }   
-                .list-articles .img-container {
-                    @apply rounded-t-lg relative
-                    border-b-[theme('colors.secondary')] border-b-[6px];
+            .list-articles img {
+                @apply relative w-full rounded-t-lg;
+                aspect-ratio: 16 / 9;
+                object-fit: cover; 
+                filter: brightness(.7);
+                transition: filter .2s linear;
+            }
+                .list-articles .img-container::after {
+                    content: 'Read on Medium';
+                    @apply absolute inset-0 top-[40%] text-white w-full h-full text-center opacity-0;
+                    transition: opacity .2s linear;
                 }
-                .list-articles img {
-                    @apply relative w-full rounded-t-lg;
-                    aspect-ratio: 16 / 9;
-                    object-fit: cover; 
-                    filter: brightness(.7);
-                    transition: filter .2s linear;
+                .list-articles article:hover .img-container::after {
+                    opacity: 1;
                 }
-                    .list-articles .img-container::after {
-                        content: 'Read on Medium';
-                        @apply absolute inset-0 top-[40%] text-white w-full h-full text-center opacity-0;
-                        transition: opacity .2s linear;
-                    }
-                    .list-articles article:hover .img-container::after {
-                        opacity: 1;
-                    }
-                    .list-articles article:hover img {
-                        filter: brightness(.4);
-                    }
-                    .list-articles .content h3 {
-                        @apply text-lg line-clamp-2;
-                    }
-                    .list-articles .content .publishedAt {
-                        @apply text-xs text-disabled mb-6;
-                    }
-                    .list-articles .content .sample {
-                        @apply mt-4 text-sm line-clamp-6;
-                    }
+                .list-articles article:hover img {
+                    filter: brightness(.4);
+                }
+                .list-articles .content h3 {
+                    @apply text-lg line-clamp-2;
+                }
+                .list-articles .content .publishedAt {
+                    @apply text-xs text-disabled mb-6;
+                }
+                .list-articles .content .sample {
+                    @apply mt-4 text-sm line-clamp-6;
+                }
 
 /* Initial Arrow Background State */
 .slick-slider {

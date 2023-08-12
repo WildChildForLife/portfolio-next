@@ -1,6 +1,59 @@
-.blockquote {
-    @apply my-5 text-sm italic;
+:root {
+    --exp-selector-text-color: theme('colors.dark');
+    --exp-selector-bg-color: transparent;
+    --exp-selector-border-color: theme('colors.dark');
+
+    --exp-selector-bg-color-hover: theme('colors.dark');
+    --exp-selector-border-color-hover: theme('colors.dark');
+    --exp-selector-text-color-hover: theme('colors.light');
+
+    --exp-selector-logo-stroke-color: theme('colors.dark');
+    --exp-selector-logo-fill-color: theme('colors.dark');
+    --exp-selector-logo-stroke-color-hover: theme('colors.light');
+    --exp-selector-logo-fill-color-hover: theme('colors.light');
+
+    --tags-bg-color: theme('colors.secondary');
+    --tags-text-color: theme('colors.dark');
 }
+
+.dark {
+    --exp-selector-text-color: theme('colors.light');
+    --exp-selector-bg-color: theme('colors.dark');
+    --exp-selector-border-color: theme('colors.light');
+
+    --exp-selector-bg-color-hover: theme('colors.light');
+    --exp-selector-border-color-hover: theme('colors.light');
+    --exp-selector-text-color-hover: theme('colors.dark');
+
+    --exp-selector-logo-stroke-color: theme('colors.light');
+    --exp-selector-logo-fill-color: theme('colors.light');
+    --exp-selector-logo-stroke-color-hover: theme('colors.dark');
+    --exp-selector-logo-fill-color-hover: theme('colors.dark');
+
+    --tags-bg-color: theme('colors.secondary');
+    --tags-text-color: theme('colors.dark');
+}
+
+.blockquote {
+    @apply relative my-5 text-sm italic text-center;
+}
+    .blockquote:before {
+        content: open-quote;
+        @apply contents text-xl;
+    }
+    .blockquote:after {
+        content: close-quote;
+        @apply contents text-xl;
+    }
+/* 
+.blockquote {
+    @apply my-5 text-sm italic text-center;
+}
+    .blockquote span:before {
+        content: open-quote;
+        @apply contents text-white text-xl;
+    } 
+    */
 
 .experiences {
     @apply flex mt-10 gap-28;
@@ -11,7 +64,7 @@
         .list-experiences li {
             @apply flex p-4 gap-5 justify-between
             min-w-[410px]
-            text-black bg-transparent border-2 border-black rounded-md
+            text-[var(--exp-selector-text-color)] bg-[var(--exp-selector-bg-color)] border-[1px] border-[var(--exp-selector-border-color)] rounded-md
             cursor-pointer;
         }
             .list-experiences .experience {
@@ -20,12 +73,20 @@
                 .list-experiences .experience .company {
                     @apply flex flex-col gap-2;
                 }
-            .list-experiences li img {
-                @apply self-start max-w-[40px];
+            .list-experiences li img,
+            .list-experiences li svg {
+                @apply self-start w-[40px];
                 object-fit: contain;
             }
+                .list-experiences li svg path {
+                    stroke: var(--exp-selector-logo-stroke-color);
+                    fill: var(--exp-selector-logo-fill-color)
+                }
             .list-experiences li .company-name {
-                @apply text-lg leading-none
+                @apply text-lg leading-none;
+            }
+            .list-experiences li.role {
+                @apply text-[var(--role-text-color)]
             }
             .list-experiences li :is(.role, time) {
                 @apply text-xs;
@@ -35,11 +96,12 @@
             }
         .list-experiences li:hover,
         .list-experiences li.active {
-            @apply bg-black text-white;
+            @apply bg-[var(--exp-selector-bg-color-hover)] text-[var(--exp-selector-text-color-hover)] border-[var(--exp-selector-border-color-hover)];
         }
-        .list-experiences li:hover img,
-        .list-experiences li.active img {
-            mix-blend-mode: difference;
+        .list-experiences li:hover svg path,
+        .list-experiences li.active svg path {
+            stroke: var(--exp-selector-logo-stroke-color-hover);
+            fill: var(--exp-selector-logo-fill-color-hover)
         }
 .experience-description {
 }
@@ -53,8 +115,9 @@
         @apply flex flex-wrap gap-2 mt-8;
     }
         .tags li {
-            @apply flex gap-2 
-            text-xs p-2 bg-lightGray rounded-xl;
+            @apply flex gap-2
+            text-xs p-[6px] pr-[9px]
+            bg-[var(--tags-bg-color)] text-[var(--tags-text-color)] rounded-xl;
         }
             .tags li svg {
                 @apply min-h-full min-w-[20px]

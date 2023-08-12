@@ -22,9 +22,11 @@ module.exports = {
       lightGray: colors.gray['200'],
       disabled: colors.gray['400'],
       primary: colors.orange['500'],
-      secondary: colors.purple['500'],
+      //secondary: colors.orange['300'],
+      secondary: colors.orange['300'],
       tertiary: colors.cyan['300']
     },
   },
   plugins: [],
+  darkMode: 'class',
 }

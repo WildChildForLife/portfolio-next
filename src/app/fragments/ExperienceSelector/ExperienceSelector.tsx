@@ -1,4 +1,6 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import { ComponentType } from "react";
 
 // TODO : Merge this Interface with Experience Interface
 interface ExperienceSelectorProps {
@@ -12,12 +14,14 @@ interface ExperienceSelectorProps {
 }
 
 const ExperienceSelector: React.FC<ExperienceSelectorProps> = ({ selectedExperienceIndex, currentIndex, icon, name, role, time, handleExperienceClick }) => {
+    let SvgComponent = (icon.endsWith('.svg')) ? importSVG(icon) : null;
     return (
         <li 
-        className={`${selectedExperienceIndex === currentIndex ? 'active' : ''}`} 
-        onClick={() => handleExperienceClick(currentIndex)}>
+            className={`${selectedExperienceIndex === currentIndex ? 'active' : ''}`} 
+            onClick={() => handleExperienceClick(currentIndex)}
+        >
             <div className="experience">
-                <Image width={100} height={100} alt="experience" src={`/assets/companies/${icon}`} />
+                {SvgComponent ? <SvgComponent /> : <Image width={100} height={100} alt="experience" src={`/assets/companies/${icon}`} />}
                 <div className="company">
                     <p className="company-name">{name}</p>
                     <p className="role">{role}</p>
@@ -26,6 +30,11 @@ const ExperienceSelector: React.FC<ExperienceSelectorProps> = ({ selectedExperie
             <time>{time}</time>
         </li>
     )
+}
+
+const importSVG = (name: string) => {
+    return require(`../../../../public/assets/companies/${name}`).default;
+    return dynamic(() => import(`../../../../public/assets/companies/${name}`), { ssr: false });
 }
 
 export default ExperienceSelector;

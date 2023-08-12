@@ -13,17 +13,37 @@ html {
 @import './blobz.css';
 @import './imports.css';
 
+:root {
+    --cta-btn-bg-color: theme('colors.dark');
+    --cta-btn-color: theme('colors.light');
+    --cta-btn-bg-color-hover: theme('colors.light');
+    --cta-btn-color-hover: theme('colors.dark');
+    --cta-btn-border-color: theme('colors.dark');
+
+    --theme-toggle-border-color: theme('colors.dark');
+    --theme-toggle-selector-color: theme('colors.dark');
+}
+.dark {
+    --cta-btn-bg-color: theme('colors.light');
+    --cta-btn-color: theme('colors.dark');
+    --cta-btn-bg-color-hover: theme('colors.dark');
+    --cta-btn-color-hover: theme('colors.light');
+    --cta-btn-border-color: theme('colors.light');
+
+    --theme-toggle-border-color: theme('colors.light');
+    --theme-toggle-selector-color: theme('colors.light');
+}
 div.call-to-action {
     @apply text-sm my-4 flex items-center;
 }
 
 div.call-to-action button {
-    @apply border-black bg-black text-white border-2 rounded-md py-2 px-4;
+    @apply border-[var(--cta-btn-border-color)] bg-[var(--cta-btn-bg-color)] text-[var(--cta-btn-color)] border-2 rounded-md py-2 px-4;
     transition: all .3s ease-in-out;
 }
 
 div.call-to-action button:hover {
-    @apply bg-white text-black;
+    @apply border-[var(--cta-btn-border-color)] bg-[var(--cta-btn-bg-color-hover)] text-[var(--cta-btn-color-hover)];
 }
 
 .hide {
@@ -38,3 +58,27 @@ h2 {
 section {
     @apply mb-40;
 }
+
+.theme-toggle {
+    @apply relative min-w-[80px] h-8 border border-black rounded-full cursor-pointer border-[var(--theme-toggle-border-color)];
+}
+    .theme-toggle::after {
+        content: '';
+        @apply absolute block left-1 top-[5px] w-5 h-5 rounded-full bg-[var(--theme-toggle-selector-color)];
+        transition: transform .2s ease-in-out;
+    }
+    .light .theme-toggle::after {
+        transform: translateX(0);
+    }
+    .dark .theme-toggle::after {
+        transform: translateX(50px);
+    }
+.theme-mode {
+    @apply absolute w-5 h-5 top-[5px];
+}
+    .dark-mode {
+        @apply left-1;
+    }
+    .light-mode {
+        @apply right-1;
+    }

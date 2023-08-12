@@ -1,5 +1,6 @@
 'use client';
 
+import ThemeToggle from '@/app/fragments/ThemeToggle/ThemeToggle';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { useEffect } from 'react';
 
@@ -47,10 +48,12 @@ const NavBar: React.FC = () => {
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Skills</a></li>
+                        <li><a href="#">Experience</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                     <div className="right-menu">
+                        <ThemeToggle />
                         <div className="call-to-action"><button>Reach out</button></div>
                         <div className="socials">
                             <a href="#"><i className="linkedin fab fa-linkedin"></i></a>

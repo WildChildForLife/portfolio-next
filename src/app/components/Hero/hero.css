@@ -1,3 +1,22 @@
+:root {
+    --avatar-bg-circle-color: theme('colors.lightGray');
+    --avatar-stroke-color: theme('colors.dark');
+    --avatar-fill-stroke-color: theme('colors.dark');
+
+    --text-color: theme('colors.dark');
+    --scroller-border-color: theme('colors.dark');
+}
+
+.dark {
+    --avatar-bg-circle-color: theme('colors.dark');
+
+    --avatar-stroke-color: theme('colors.light');
+
+    --text-color: theme('colors.light');
+
+    --scroller-border-color: theme('colors.light');
+}
+
 .hero-section {
     @apply h-[100svh]
     flex align-middle items-center;
@@ -23,7 +42,7 @@
         .technologies::after {
             content: '';
             @apply align-middle justify-self-center block aspect-square w-[var(--circle-width)];
-            background: radial-gradient(ellipse at center, theme('colors.lightGray') 70% , transparent 70%);
+            background: radial-gradient(ellipse at center, var(--avatar-bg-circle-color) 70% , transparent 70%);
         }
         .technologies .icon-container {
             @apply absolute top-[50%] left-[50%];
@@ -66,30 +85,29 @@
     .hero-avatar {
         @apply absolute z-30 w-[400px] left-0 right-0 m-auto;
         fill: none;
-        stroke: theme('colors.black');
+        stroke: var(--avatar-stroke-color);
         stroke-width: 1px;
     }
     .avatar-fills {
         @apply absolute z-20 w-[400px] left-0 right-0 m-auto;
         fill: none;
-        stroke: theme('colors.black');
+        stroke: var(--avatar-fill-stroke-color);
         stroke-width: 0px;
     }
 
 
 .left-hero {
-    @apply w-full;
+    @apply text-[var(--text-color)] w-full;
 }
     .heading {
-        @apply 
-            text-dark -translate-y-[100px]
+        @apply -translate-y-[100px]
     }
 
         .heading > span {
             @apply 
                 block 
                 text-[2rem] tracking-wider 
-                    after:border-b-2 after:border-b-dark
+                    after:border-b-2 after:border-b-[var(--text-color)]
                     after:inline-block
                     after:h-2 after:w-[100px]
         }
@@ -98,12 +116,9 @@
             @apply text-[4rem] font-bold tracking-tight;
         }
 
-            .heading h1 span {
-                @apply text-dark;
-            }
-
         .heading p {
             @apply text-[1.3rem];
+            mix-blend-mode: color-burn;
         }
 
         .heading .call-to-action {
@@ -138,14 +153,14 @@
     }
 
 .scroller {
-    @apply block absolute left-0 right-0 bottom-10 m-auto w-[40px] border-black border-[2px] rounded-full;
+    @apply block absolute left-0 right-0 bottom-10 m-auto w-[40px] border-[var(--scroller-border-color)] border-[2px] rounded-full;
     aspect-ratio: 2 / 4;
     transition: opacity .3s linear;
 }
     .scroller::after {
         content: '';
         @apply block m-auto w-[15px] rounded-full
-        bg-black;
+        bg-[var(--scroller-border-color)];
         aspect-ratio: 1 / 1;
         transform: translateY(10px);
         animation: scrollDown 1.5s linear infinite;

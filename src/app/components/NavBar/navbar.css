@@ -1,15 +1,33 @@
+:root {
+    --header-bg: transparent;
+    --logo-color: theme('colors.dark');
+    --item-menu-color: theme('colors.dark');
+    --active-item-menu-color: theme('colors.dark');
+    --socials-color: theme('colors.dark');
+}
+
+.dark {
+    --logo-color: theme('colors.secondary');
+    --item-menu-color: theme('colors.light');
+    --active-item-menu-color: theme('colors.light');
+    --socials-color: theme('colors.light');
+}
+    .dark .header.sticking {
+        --header-bg: theme('colors.dark');
+        box-shadow: theme('colors.light') 0px 0px 10px;
+    }
+
 .header {
     --scale-border-header: 0;
     --height-border-header: 4px;
-    --bg-header: transparent;
     --logo-size: 50px;
 
-    @apply sticky top-0 z-40 bg-[var(--bg-header)];
+    @apply sticky top-0 z-40 bg-[var(--header-bg)];
 
     transition: background-color .2s linear;
 }
     .header.sticking {
-        --bg-header: theme('colors.white');
+        --header-bg: theme('colors.light');
         box-shadow: theme('colors.black') 0px 0px 10px;
     }
 
@@ -26,7 +44,6 @@
     @apply relative
     flex place-content-between
     w-full;
-    flex: 2 2 2 auto;
 }
 
 div.logo {
@@ -38,12 +55,12 @@ div.logo {
 div.logo .logo-name {
     @apply 
         font-bold uppercase text-2xl
-        text-black;
+        text-[var(--logo-color)];
 }
     div.logo .square {
         @apply 
         absolute inset-0 w-[var(--logo-size)] h-[var(--logo-size)] m-auto
-        border-2 border-black rounded-lg;
+        border-[1px] border-[var(--logo-color)] rounded-lg;
         transition: all .6s ease-in-out;
     }
         div.logo .square.square-1 {
@@ -70,14 +87,14 @@ ul.menu {
 ul.menu a {
     @apply 
         relative
-        text-sm text-dark ;
+        text-sm text-[var(--item-menu-color)] ;
     padding-block: 8px;
 }
     ul.menu a::after {
         transition: width .3s ease-in-out;
         content: '';
         @apply absolute bottom-0 left-0
-        w-[0%] h-1 bg-dark
+        w-[0%] h-1 bg-[var(--active-item-menu-color)]
     }
 
 
@@ -99,6 +116,6 @@ div.socials {
 
 div.socials i {
     @apply 
-        text-base text-dark 
+        text-base text-[var(--socials-color)]
             hover:text-secondary;
 }

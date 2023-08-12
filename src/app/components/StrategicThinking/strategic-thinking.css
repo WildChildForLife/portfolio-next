@@ -1,3 +1,16 @@
+:root {
+    --step-text-color: theme('colors.light');
+    --step-text-bg-color: theme('colors.dark');
+    --card-border-color: theme('colors.secondary');
+}
+
+.dark {
+    --step-text-color: theme('colors.dark');
+    --step-text-bg-color: theme('colors.light');
+
+    --card-border-color: theme('colors.secondary');
+}
+
 .strategicthinking-section {
 
 }
@@ -5,7 +18,7 @@
         @apply flex gap-10 justify-center items-stretch;
     }
         .list-cards > ul > li {
-            @apply border-gray-200 border-[1px] rounded-xl text-center p-4 w-full;
+            @apply border-[var(--card-border-color)] border-[1px] rounded-xl text-center p-4 w-full;
         }
         .list-cards > ul > li h3 {
             @apply mb-8 text-xl leading-none font-semibold  p-8;
@@ -14,13 +27,13 @@
             @apply flex flex-col gap-4;
         }
             .list-cards > ul > li > ul > li {
-                @apply relative w-max m-auto py-2 px-6 bg-black text-white rounded-xl text-lg w-[100%];
+                @apply relative w-max m-auto py-2 px-6 bg-[var(--step-text-bg-color)] text-[var(--step-text-color)] rounded-xl text-lg w-[100%];
             }
                 .list-cards > ul > li > ul > li svg {
                     @apply absolute top-3 left-3;
                 }
                 .list-cards > ul > li > ul > li svg path {
-                    stroke: white;
+                    stroke: var(--step-text-color);
                 }
     
     

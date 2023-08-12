@@ -1,6 +1,3 @@
-import { HTMLMotionProps, MotionStyle, motion } from 'framer-motion';
-import Image, { ImageProps } from 'next/image';
-import { AllHTMLAttributes, HTMLAttributes, useEffect } from 'react';
 import { IconType } from '../Icon/IconTypes';
 import Icon from '../Icon/Icon';
 

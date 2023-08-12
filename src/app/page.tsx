@@ -1,4 +1,7 @@
-'use server';
+'use client';
+
+import { AppProps } from 'next/app';
+import { ThemeProvider } from "next-themes"
 
 import NavBar from './components/NavBar/NavBar';
 import Hero from './components/Hero/Hero';
@@ -7,7 +10,7 @@ import StrategicThinking from './components/StrategicThinking/StrategicThinking'
 import SharingIsCaring from './components/SharingIsCaring/SharingIsCaring';
 import SkillsExperiences from './components/SkillsExperiences/SkillsExperiences';
 
-const Home = () => {
+const App = ({ Component, pageProps }: AppProps) => {
     // const [state, setState] = useState({ left: 0, top: 0 });
     //   useEffect(() => {
     //       document. addEventListener('mousemove', (e) => {
@@ -15,17 +18,17 @@ const Home = () => {
     //       })
     //   }, [])
     return (
-        <> 
+        <ThemeProvider attribute='class'>
             <NavBar></NavBar>
-            <main className="font-['Poppins']">
+            <main>
                 <Hero></Hero>
                 <AboutMe></AboutMe>
                 <StrategicThinking></StrategicThinking>
                 <SharingIsCaring></SharingIsCaring>
                 <SkillsExperiences></SkillsExperiences>
             </main>
-        </>
+        </ThemeProvider>
     )
 }
 
-export default Home;
+export default App;

@@ -496,7 +496,7 @@ export const experiences: ExperienceType[] = [{
     ]
 }, {
     name: 'Le Groupe La Poste',
-    icon: 'laposte.png',
+    icon: 'laposte.svg',
     role: 'Technical Lead Full-Stack / Architect',
     time: '2018 - 2020',
     description: [
@@ -522,7 +522,7 @@ export const experiences: ExperienceType[] = [{
     ]
 }, {
     name: 'Amundi Asset Mngmnt',
-    icon: 'amundi.png',
+    icon: 'amundi.svg',
     role: 'Sr. Web Application Developer',
     time: '2017 - 2018',
     description: [
