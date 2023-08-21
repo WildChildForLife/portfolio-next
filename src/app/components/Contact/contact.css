@@ -1,0 +1,76 @@
+:root {
+    --shift-form-positon-by: 100px;
+
+    --submit-button-bg-color: theme('colors.black');
+    --submit-button-text-color: theme('colors.white');
+
+    --submit-button-bg-color-hover: theme('colors.white');
+    --submit-button-text-color-hover: theme('colors.black');
+
+    --section-bg-color: theme('colors.dark');
+    --form-bg-color: theme('colors.light');
+    --form-border-color: theme('colors.dark');
+
+    --world-svg-stroke: theme('colors.primary');
+}
+
+.dark {
+    --submit-button-bg-color: theme('colors.white');
+    --submit-button-text-color: theme('colors.black');
+
+    --submit-button-bg-color-hover: theme('colors.black');
+    --submit-button-text-color-hover: theme('colors.white');
+
+    --section-bg-color: theme('colors.light');
+    --form-bg-color: theme('colors.dark');
+    --form-border-color: theme('colors.light');
+    --world-svg-stroke: theme('colors.primary');
+}
+
+.contact-section {
+    @apply relative bg-[var(--section-bg-color)] mb-0;
+}
+    .svg-worldmap {
+        @apply absolute inset-0 max-h-[100%] max-w-[100%];
+    }
+    .svg-worldmap path {
+        fill: none;
+        stroke: var(--world-svg-stroke);
+        stroke-width: 1px;
+    }
+    .contact-section .form-container {
+        @apply bg-[var(--form-bg-color)] w-1/2 m-auto p-8 border border-[var(--form-border-color)] rounded-md;
+        transform: translateY(calc(var(--shift-form-positon-by) * -1));
+    }
+    .contact-section form {
+        @apply grid grid-cols-2 gap-8;
+    }
+
+    .contact-section .group-input {
+        @apply flex flex-col gap-2;
+    }
+
+        .group-input label {
+            @apply text-sm font-semibold;
+        }
+        .group-input input,
+        .group-input textarea,
+        .group-input select {
+            @apply bg-gray-100 px-4 py-2 text-black text-sm outline-black rounded-md;
+        }
+        .group-message {
+            @apply col-span-2;
+        }
+        .group-submit {
+            @apply col-span-1;
+        }
+            .group-submit button {
+                @apply w-[300px] bg-[var(--submit-button-bg-color)] text-[var(--submit-button-text-color)] border border-[var(--submit-button-border-color)] rounded-md p-2 text-sm  mt-3;
+                transition: all .2s linear;
+            }
+            .group-submit button:hover {
+                @apply bg-[var(--submit-button-bg-color-hover)] text-[var(--submit-button-text-color-hover)] border-[var(--submit-button-border-color-hover)];
+            }
+                .group-submit button svg {
+                    @apply inline;
+                }

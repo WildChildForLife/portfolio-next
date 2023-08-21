@@ -98,7 +98,8 @@ ul.menu a {
     }
 
 
-ul.menu a:hover::after {
+ul.menu a:hover::after,
+ul.menu a.active::after {
     @apply w-[100%];
 }
 

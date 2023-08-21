@@ -1,6 +1,4 @@
-import dynamic from "next/dynamic";
 import Image from "next/image";
-import { ComponentType } from "react";
 
 // TODO : Merge this Interface with Experience Interface
 interface ExperienceSelectorProps {
@@ -34,7 +32,7 @@ const ExperienceSelector: React.FC<ExperienceSelectorProps> = ({ selectedExperie
 
 const importSVG = (name: string) => {
     return require(`../../../../public/assets/companies/${name}`).default;
-    return dynamic(() => import(`../../../../public/assets/companies/${name}`), { ssr: false });
+    //return dynamic(() => import(`../../../../public/assets/companies/${name}`), { ssr: false });
 }
 
 export default ExperienceSelector;

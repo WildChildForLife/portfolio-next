@@ -2,15 +2,35 @@
 
 import ThemeToggle from '@/app/fragments/ThemeToggle/ThemeToggle';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { useEffect } from 'react';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-const NavBar: React.FC = () => {
+type NavBarProps = {
+    routes: Record<string, string>;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ routes }) => {
+    const [currentRoute, setCurrentRoute] = useState('home');
+
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,
         restDelta: 0.001
     });
+
+    const scrollIntoView = (id: string) => {
+        const element = document.getElementById(id);
+        const headerHeight = document.getElementsByTagName('header')[0].clientHeight;
+        const extraPaddingTop = 10;
+        if (element && headerHeight) {
+            const y = element.getBoundingClientRect().top + window.scrollY - headerHeight - extraPaddingTop;
+            window.scrollTo({top: y, behavior: 'smooth'});
+        }
+    
+        setCurrentRoute(id);
+    }
 
     useEffect(() => {
         const primaryHeader = document.querySelector('.header');
@@ -32,6 +52,11 @@ const NavBar: React.FC = () => {
         }
     }, []);
 
+    const params = useParams();
+
+    useEffect(() => {
+        setCurrentRoute(window.location.hash.replace('#', ''));
+    }, [params]);
 
     return (
         <header className="header">
@@ -45,12 +70,9 @@ const NavBar: React.FC = () => {
                         <span className='square square-3'></span>
                     </div>
                     <ul className="menu">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Skills</a></li>
-                        <li><a href="#">Experience</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
+                        {Object.entries(routes).map(([name, path]) =>
+                            <li key={name}>{getNavBarLink({ name, path, currentRoute, onClickFn: scrollIntoView })}</li>
+                        )}
                     </ul>
                     <div className="right-menu">
                         <ThemeToggle />
@@ -64,6 +86,24 @@ const NavBar: React.FC = () => {
                 </nav>
             </div>
         </header>
+    )
+}
+
+type NavBarLinkProps = {
+    name: string;
+    path: string;
+    currentRoute: string;
+    onClickFn: (path: string) => void;
+}
+
+const getNavBarLink: React.FC<NavBarLinkProps> = ({
+    name, 
+    path, 
+    currentRoute, 
+    onClickFn
+}) => {
+    return (
+        <Link scroll={false} href={`#${path}`} className={currentRoute === path ? 'active' : ''} onClick={() => onClickFn(path)}>{name}</Link>
     )
 }
 

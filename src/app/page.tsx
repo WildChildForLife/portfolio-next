@@ -1,16 +1,14 @@
-'use client';
-
 import { AppProps } from 'next/app';
-import { ThemeProvider } from "next-themes"
 
-import NavBar from './components/NavBar/NavBar';
+import routes from './routes';
 import Hero from './components/Hero/Hero';
 import AboutMe from './components/AboutMe/AboutMe';
 import StrategicThinking from './components/StrategicThinking/StrategicThinking';
 import SharingIsCaring from './components/SharingIsCaring/SharingIsCaring';
 import SkillsExperiences from './components/SkillsExperiences/SkillsExperiences';
+import Contact from './components/Contact/Contact';
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App: React.FC<AppProps> = () => {
     // const [state, setState] = useState({ left: 0, top: 0 });
     //   useEffect(() => {
     //       document. addEventListener('mousemove', (e) => {
@@ -18,16 +16,14 @@ const App = ({ Component, pageProps }: AppProps) => {
     //       })
     //   }, [])
     return (
-        <ThemeProvider attribute='class'>
-            <NavBar></NavBar>
-            <main>
-                <Hero></Hero>
-                <AboutMe></AboutMe>
-                <StrategicThinking></StrategicThinking>
-                <SharingIsCaring></SharingIsCaring>
-                <SkillsExperiences></SkillsExperiences>
-            </main>
-        </ThemeProvider>
+        <>
+            <Hero id={routes.Home}></Hero>
+            <AboutMe id={routes.About}></AboutMe>
+            <StrategicThinking id={routes.Skills}></StrategicThinking>
+            <SharingIsCaring id={routes.Blog}></SharingIsCaring>
+            <SkillsExperiences id={routes.Experience}></SkillsExperiences>
+            <Contact id={routes.Contact}></Contact>
+        </>
     )
 }
 

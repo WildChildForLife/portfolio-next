@@ -1,6 +1,3 @@
-.aboutme-section {
-
+.aboutme-section p {
+    @apply mb-6 text-base font-normal leading-8;
 }
-    .aboutme-section p {
-        @apply mb-6 text-base font-normal leading-8;
-    }

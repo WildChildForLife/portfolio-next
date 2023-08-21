@@ -60,6 +60,8 @@ const Icon: React.FC<IconLibraryPropsType> = ({ type, code, className }) => {
     ]);
 
     const IconComponent: ComponentType<any> = (libraries.get(type) as IconLibraryType)[code];
+    //const IconComponent: ComponentType<any> = require(`react-icons/${type}/${code}`);
+    //console.log(IconComponent);
     // const IconComponent: ComponentType<any> = dynamic(() => 
     //     import(`react-icons/${type}/${code}`).then((module: IconLibraryType) => module.default), {
     //         ssr: false

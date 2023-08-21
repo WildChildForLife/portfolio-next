@@ -1,8 +1,4 @@
-'use client';
-
-import { ReactElement, useEffect } from 'react';
-import { useScroll } from "framer-motion"
-
+import { ReactElement } from 'react';
 
 import Avatar from '../../fragments/Avatar/Avatar';
 import Blob from '../../fragments/Blob/Blob';
@@ -12,33 +8,15 @@ import { IconType } from '@/app/fragments/Icon/IconTypes';
 
 type PivotingIconsAsReactElement = ReactElement<IconType, any>;
 
-const Hero: React.FC = () => {
-    const { scrollYProgress } = useScroll();
-    
-    useEffect(() => {
-        // Utility function to toggle a class based on the scroll position
-        const toggleClassOnScroll = (element: HTMLElement | null, className: string) => (scrollPosition: number) => {
-            if (element && scrollPosition > 0) {
-                element.classList.add(className);
-            } else {
-                element?.classList.remove(className);
-            }
-        };
-    
-        // Usage:
-        const scroller: HTMLElement | null = document.querySelector('.scroller');
-    
-        // Use the utility function to create a new function with the 'hide' class and scroller element bound
-        const onScrollHideScroller = toggleClassOnScroll(scroller, 'hide');
-    
-        // Assuming you have a 'scrollYProgress' object that emits the 'change' event with the scroll position
-        scrollYProgress.on('change', onScrollHideScroller);
-    });
+type HeroProps = {
+    id: string;
+}
 
+const Hero: React.FC<HeroProps> = ({ id }) => {
     const pivotingIconsElements: PivotingIconsAsReactElement[] = getPivotingIcons(pivotingIcons);
 
     return (
-        <section className="hero-section container mx-auto">
+        <section id={id} className="hero-section container mx-auto">
             <div className="left-hero">
                 <Blob className="animated-blob blob-small"></Blob>
                 <Blob className="animated-blob blob-medium"></Blob>
