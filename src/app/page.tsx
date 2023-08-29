@@ -1,5 +1,3 @@
-import { AppProps } from 'next/app';
-
 import routes from './routes';
 import Hero from './components/Hero/Hero';
 import AboutMe from './components/AboutMe/AboutMe';
@@ -8,7 +6,7 @@ import SharingIsCaring from './components/SharingIsCaring/SharingIsCaring';
 import SkillsExperiences from './components/SkillsExperiences/SkillsExperiences';
 import Contact from './components/Contact/Contact';
 
-const App: React.FC<AppProps> = () => {
+const App: React.FC = () => {
     // const [state, setState] = useState({ left: 0, top: 0 });
     //   useEffect(() => {
     //       document. addEventListener('mousemove', (e) => {

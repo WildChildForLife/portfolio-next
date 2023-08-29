@@ -1,15 +1,9 @@
-import { AvailableStepsForIcon } from "@/app/components/StrategicThinking/strategicThinkingContent";
 import Steps from "../Steps/Steps";
+import { CardPropsType } from "@/app/types/props";
 
-interface CardProps {
-    index: number,
-    title: string,
-    items: AvailableStepsForIcon[]
-}
-
-const Card: React.FC<CardProps> = ({ index, title, items }) => {
+const Card: React.FC<CardPropsType> = ({ title, items }) => {
     return(
-        <li key={index} className="card">
+        <li className="card">
             <h3>{title}</h3>
             <ul>
                 <Steps items={items} />

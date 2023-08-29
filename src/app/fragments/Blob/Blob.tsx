@@ -1,12 +1,9 @@
 'use client';
 
-import { HTMLMotionProps, motion } from 'framer-motion';
+import { BlobPropsType } from '@/app/types/props';
+import { motion } from 'framer-motion';
 
-interface BlobProps extends HTMLMotionProps<'div'> {
-    className?: string;
-}
-
-const Blob: React.FC<BlobProps> = ({ className }) => {
+const Blob: React.FC<BlobPropsType> = ({ className }) => {
     return (
         <motion.div className={className}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 747.2 726.7">

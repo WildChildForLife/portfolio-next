@@ -1,9 +1,6 @@
-type AboutMeProps = {
-    id: string;
-}
+import { SectionWithIdPropsType } from "@/app/types/props";
 
-const AboutMe: React.FC<AboutMeProps> = ({ id }) => {
-    
+const AboutMe: React.FC<SectionWithIdPropsType> = ({ id }) => {
     return (
         <section id={id} className="aboutme-section container mx-auto">
             <h2>About me</h2>

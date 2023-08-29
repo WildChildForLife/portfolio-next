@@ -8,6 +8,8 @@
     --submit-button-text-color-hover: theme('colors.black');
 
     --section-bg-color: theme('colors.dark');
+    --input-field-bg-color: theme('colors.lightGray');
+    --input-field-outline-color: theme('colors.dark');
     --form-bg-color: theme('colors.light');
     --form-border-color: theme('colors.dark');
 
@@ -22,6 +24,8 @@
     --submit-button-text-color-hover: theme('colors.white');
 
     --section-bg-color: theme('colors.light');
+    --input-field-bg-color: theme('colors.darkGray');
+    --input-field-outline-color: theme('colors.light');
     --form-bg-color: theme('colors.dark');
     --form-border-color: theme('colors.light');
     --world-svg-stroke: theme('colors.primary');
@@ -53,10 +57,8 @@
         .group-input label {
             @apply text-sm font-semibold;
         }
-        .group-input input,
-        .group-input textarea,
-        .group-input select {
-            @apply bg-gray-100 px-4 py-2 text-black text-sm outline-black rounded-md;
+        .group-input .input-field {
+            @apply bg-[var(--input-field-bg-color)] px-4 py-2 text-sm outline-[var(--input-field-outline-color)] rounded-md;
         }
         .group-message {
             @apply col-span-2;
@@ -74,3 +76,37 @@
                 .group-submit button svg {
                     @apply inline;
                 }
+
+                .group-submit .loading-icon {
+                    margin-top: -5px;
+                    animation: loading-rotate 1s ease-in infinite;
+                }
+                
+                @keyframes loading-rotate {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+
+.title-n-error {
+    @apply flex gap-4 items-center mb-12;
+}
+    .title-n-error h2 {
+        @apply mb-0;
+    }
+    .title-n-error svg {
+        @apply inline-block ml-2;
+    }
+
+.info {
+    @apply text-xs;
+}
+.info.error {
+    @apply text-[theme('colors.error')];
+}
+.info.success {
+    @apply text-[theme('colors.success')];
+}

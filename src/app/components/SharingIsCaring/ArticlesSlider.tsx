@@ -3,7 +3,7 @@
 import Slider from "react-slick";
 
 import Article from "@/app/fragments/Article/Article";
-import { articles } from "./blogContent";
+import { articles } from "./blog-content";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

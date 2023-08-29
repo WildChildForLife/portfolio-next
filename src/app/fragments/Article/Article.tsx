@@ -1,15 +1,8 @@
+import ArticlePropsType from "@/app/types/props/ArticlePropsType";
 import Image from "next/image";
 import Link from "next/link";
 
-interface ArticleProps {
-    title: string;
-    publishedAt: string;
-    link: string;
-    sample: string;
-    imgName: string;
-}
-
-const Article: React.FC<ArticleProps> = ({ title, publishedAt, link, sample, imgName }) => {
+const Article: React.FC<ArticlePropsType> = ({ title, publishedAt, link, sample, imgName }) => {
     return (
         <article>
             <figure>

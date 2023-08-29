@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-import { ExperienceType } from '@/app/components/SkillsExperiences/ExperienceTypes';
-import { experiences } from '../../components/SkillsExperiences/experienceContent';
+import { ExperienceType } from '@/app/types/ExperienceType';
+import { experiences } from '../../components/SkillsExperiences/experience-content';
 import ExperienceSelector from '../ExperienceSelector/ExperienceSelector';
 import ExperienceDescription from '../ExperienceDescription/ExperienceDescription';
 

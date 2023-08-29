@@ -9,6 +9,9 @@ const nextConfig = {
     },
     experimental: {
         serverActions: true
+    },
+    env: {
+        HCAPTCHA_SITEKEY: process.env.HCAPTCHA_SITEKEY
     }
 }
 

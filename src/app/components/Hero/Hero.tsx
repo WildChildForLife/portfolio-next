@@ -3,17 +3,14 @@ import { ReactElement } from 'react';
 import Avatar from '../../fragments/Avatar/Avatar';
 import Blob from '../../fragments/Blob/Blob';
 import HeroIcon from '../../fragments/HeroIcons/HeroIcon';
-import { pivotingIcons } from './heroContent';
+import { pivotingIcons } from './hero-content';
 import { IconType } from '@/app/fragments/Icon/IconTypes';
+import { SectionWithIdPropsType } from '@/app/types/props';
 
-type PivotingIconsAsReactElement = ReactElement<IconType, any>;
+type PivotingIconsAsReactElementType = ReactElement<IconType, any>;
 
-type HeroProps = {
-    id: string;
-}
-
-const Hero: React.FC<HeroProps> = ({ id }) => {
-    const pivotingIconsElements: PivotingIconsAsReactElement[] = getPivotingIcons(pivotingIcons);
+const Hero: React.FC<SectionWithIdPropsType> = ({ id }) => {
+    const pivotingIconsElements: PivotingIconsAsReactElementType[] = getPivotingIcons(pivotingIcons);
 
     return (
         <section id={id} className="hero-section container mx-auto">
@@ -45,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
 }
 
 const getPivotingIcons = (icons: IconType[]) => (
-    icons.map<PivotingIconsAsReactElement>((icon: IconType, index: number) => (
+    icons.map<PivotingIconsAsReactElementType>((icon: IconType, index: number) => (
         <HeroIcon
             key={index}
             name={icon.name}

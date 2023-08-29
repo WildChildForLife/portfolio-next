@@ -1,19 +1,9 @@
 import { motion } from "framer-motion";
 import Tag from "../Tag/Tag";
-import { ReactElement, useCallback, useMemo } from "react";
 import { IconType, AvailableTagsForIconType } from "../Icon/IconTypes";
-import { mappedTagsIcons } from "@/app/components/SkillsExperiences/experienceContent";
-
-
-// TODO : Merge this Interface with Experience Interface
-type ExperienceDescriptionPropsType = {
-    currentIndex: number;
-    name: string;
-    description: string[];
-    skills: AvailableTagsForIconType[]
-}
-
-type TagAsReactElementType = ReactElement<typeof Tag, any>;
+import { mappedTagsIcons } from "@/app/components/SkillsExperiences/experience-content";
+import { ExperienceDescriptionPropsType } from "@/app/types/props";
+import { TagAsReactElementType } from "@/app/types";
 
 const ExperienceDescription: React.FC<ExperienceDescriptionPropsType> = ({ currentIndex, name, description, skills }) => {
     const tagsElements: TagAsReactElementType[] = getTags(skills);

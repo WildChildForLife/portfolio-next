@@ -1,18 +1,15 @@
 import Card from "@/app/fragments/Card/Card";
-import { cards } from "./strategicThinkingContent";
+import { cards } from "./strategicThinking-content";
+import { SectionPropsWithIdType } from "@/app/types/props";
 
-type StrategicThinkingProps = {
-    id: string;
-}
-
-const StrategicThinking: React.FC<StrategicThinkingProps>  = ({ id }) => {
+const StrategicThinking: React.FC<SectionPropsWithIdType>  = ({ id }) => {
     return (
         <section id={id} className="strategicthinking-section container mx-auto">
             <h2>Strategic Thinking</h2>
             <div className="list-cards">
                 <ul>
                     {cards.map((card, index) => (
-                        <Card index={index} title={card.title} items={card.items} key={index} ></Card>
+                        <Card title={card.title} items={card.items} key={index}></Card>
                     ))}
                 </ul>
             </div>

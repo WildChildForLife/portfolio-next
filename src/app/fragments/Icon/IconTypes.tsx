@@ -1,4 +1,4 @@
-import { availableIcons } from "@/app/components/SkillsExperiences/experienceContent";
+import { availableIcons } from "@/app/components/SkillsExperiences/experience-content";
 
 export type IconTypesType = 'fa' | 'fa6' | 'ai' | 'md' | 'si' | 'vsc' | 'gr' | 'ri' | 'fc' | 'bi' | 'bs' | 'cg' | 'ci' | 'go' | 'gi' | 'pi' | 'di';
 export type IconType = {

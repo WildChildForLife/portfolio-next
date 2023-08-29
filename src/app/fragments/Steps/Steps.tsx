@@ -1,6 +1,6 @@
 'use client';
 
-import { AvailableStepsForIcon, mappedStepsIcons } from "@/app/components/StrategicThinking/strategicThinkingContent";
+import { AvailableStepsForIcon, mappedStepsIcons } from "@/app/components/StrategicThinking/strategicThinking-content";
 import React, { ReactElement } from "react";
 import { IconType } from "../Icon/IconTypes";
 import { motion } from "framer-motion";
@@ -8,11 +8,11 @@ import Icon from "../Icon/Icon";
 
 type StepAsReactElement = ReactElement<HTMLLIElement & IconType, any>;
 
-type StepsProps = {
+type StepsPropsType = {
     items: AvailableStepsForIcon[]
 }
 
-const Steps: React.FC<StepsProps> = ({ items }) => (
+const Steps: React.FC<StepsPropsType> = ({ items }) => (
     getHydratedSteps(items).map<StepAsReactElement>((step: IconType, index: number) => (
         <motion.li 
             key={index}

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 // TODO : Merge this Interface with Experience Interface
-interface ExperienceSelectorProps {
+interface ExperienceSelectorPropsType {
     selectedExperienceIndex: number;
     currentIndex: number;
     icon: string;
@@ -11,7 +11,7 @@ interface ExperienceSelectorProps {
     handleExperienceClick: (index: number) => void;
 }
 
-const ExperienceSelector: React.FC<ExperienceSelectorProps> = ({ selectedExperienceIndex, currentIndex, icon, name, role, time, handleExperienceClick }) => {
+const ExperienceSelector: React.FC<ExperienceSelectorPropsType> = ({ selectedExperienceIndex, currentIndex, icon, name, role, time, handleExperienceClick }) => {
     let SvgComponent = (icon.endsWith('.svg')) ? importSVG(icon) : null;
     return (
         <li 

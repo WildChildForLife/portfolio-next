@@ -1,5 +1,5 @@
 import { IconsMappedType } from "@/app/fragments/Icon/IconTypes";
-import { ExperienceType } from "@/app/components/SkillsExperiences/ExperienceTypes";
+import { ExperienceType } from "@/app/types/ExperienceType";
 
 export const availableIcons = [
     'AWS',

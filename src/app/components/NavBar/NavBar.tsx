@@ -1,24 +1,52 @@
 'use client';
 
 import ThemeToggle from '@/app/fragments/ThemeToggle/ThemeToggle';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { NavBarLinkPropsType, NavBarPropsType } from '@/app/types/props';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { intersectionObserver } from './observers';
 
-type NavBarProps = {
-    routes: Record<string, string>;
-}
-
-const NavBar: React.FC<NavBarProps> = ({ routes }) => {
+const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
     const [currentRoute, setCurrentRoute] = useState('home');
 
-    const { scrollYProgress } = useScroll();
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-    });
+    useEffect(() => {
+        let observerParams = { 
+            rootMargin: '-20px 0px -20px 0px',
+            threshold: 0.8 
+        };
+        const observer = intersectionObserver.initObserver(observerParams, (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(entry.target.id);
+                    setCurrentRoute(entry.target.id);
+                }
+            });
+        })
+        
+        Object.values(routes).map((route) => {
+            const element = document.getElementById(route);
+            if (element) {
+                intersectionObserver.startObserving(observer, element);
+            }
+        });
+
+        return () => {
+            Object.values(routes).map((route) => {
+                const element = document.getElementById(route);
+                if (element) {
+                    intersectionObserver.stopObserving(observer, element);
+                }
+            })
+        }
+    }, []);
+
+    // const { scrollYProgress } = useScroll();
+    // const scaleX = useSpring(scrollYProgress, {
+    //     stiffness: 100,
+    //     damping: 30,
+    //     restDelta: 0.001
+    // });
 
     const scrollIntoView = (id: string) => {
         const element = document.getElementById(id);
@@ -32,36 +60,38 @@ const NavBar: React.FC<NavBarProps> = ({ routes }) => {
         setCurrentRoute(id);
     }
 
+    // Sticky Header
     useEffect(() => {
         const primaryHeader = document.querySelector('.header');
         if (primaryHeader) {
-            const scrollWatcher = document.createElement('div');
-            scrollWatcher.setAttribute('data-scroll-watcher', '');
-            primaryHeader.before(scrollWatcher);
+            const observerElement = document.createElement('div');
+            primaryHeader.before(observerElement);
+            
+            let observerParams = { rootMargin: `200px 0px 0px 0px` };
+            let observerIntersection = intersectionObserver.initObserver(
+                observerParams,
+                (entries) => primaryHeader.classList.toggle('sticking', !entries[0].isIntersecting)
+            );
 
-            const navObserver = new IntersectionObserver((entries) => {
-                
-                primaryHeader.classList.toggle('sticking', !entries[0].isIntersecting);
-            }, { rootMargin: "200px 0px 0px 0px" })
-
-            navObserver.observe(scrollWatcher);
+            intersectionObserver.startObserving(observerIntersection, observerElement);
 
             return () => {
-                navObserver.unobserve(scrollWatcher);
+                intersectionObserver.stopObserving(observerIntersection, observerElement);
             };
         }
     }, []);
 
-    const params = useParams();
+    
 
-    useEffect(() => {
-        setCurrentRoute(window.location.hash.replace('#', ''));
-    }, [params]);
+    // const params = useParams();
+
+    // useEffect(() => {
+    //     setCurrentRoute(window.location.hash.replace('#', ''));
+    // }, [params]);
 
     return (
         <header className="header">
             <div className="container mx-auto">
-                <motion.div className="progress-bar" style={{ scaleX }}></motion.div>
                 <nav className="menuContainer">
                     <div className="logo">
                         <span className="logo-name">Y</span>
@@ -89,19 +119,13 @@ const NavBar: React.FC<NavBarProps> = ({ routes }) => {
     )
 }
 
-type NavBarLinkProps = {
-    name: string;
-    path: string;
-    currentRoute: string;
-    onClickFn: (path: string) => void;
-}
-
-const getNavBarLink: React.FC<NavBarLinkProps> = ({
+const getNavBarLink: React.FC<NavBarLinkPropsType> = ({
     name, 
     path, 
     currentRoute, 
-    onClickFn
+    onClickFn,
 }) => {
+    console.log('CURRENT ROUTE ', currentRoute, 'PATH', path);
     return (
         <Link scroll={false} href={`#${path}`} className={currentRoute === path ? 'active' : ''} onClick={() => onClickFn(path)}>{name}</Link>
     )

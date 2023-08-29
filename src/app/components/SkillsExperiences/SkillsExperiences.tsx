@@ -1,10 +1,7 @@
 import Experiences from "@/app/fragments/Experiences/Experiences";
+import { SectionPropsWithIdType } from "@/app/types/props";
 
-type SkillsExperiencesProps = {
-    id: string;
-}
-
-const SkillsExperiences: React.FC<SkillsExperiencesProps> = ({ id }) => {
+const SkillsExperiences: React.FC<SectionPropsWithIdType> = ({ id }) => {
     return (
         <section id={id} className="skills-experiences-section container mx-auto">
             <h2>Skills & Experiences</h2>
