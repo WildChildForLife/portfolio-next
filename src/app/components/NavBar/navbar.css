@@ -2,7 +2,7 @@
     --header-bg: transparent;
     --logo-color: theme('colors.dark');
     --item-menu-color: theme('colors.dark');
-    --active-item-menu-color: theme('colors.dark');
+    --active-item-menu-color: theme('colors.primary');
     --socials-color: theme('colors.dark');
 }
 

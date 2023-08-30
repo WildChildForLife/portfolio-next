@@ -28,7 +28,7 @@ const Avatar: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
       }, []);
 
     return (
-        <>
+        <div className='avatar-container'>
             <svg {...props} viewBox='0 0 506 600' xmlns="http://www.w3.org/2000/svg" id='svg-avatar' >
                 {svgPath.map((path, index) => (
                     <motion.path
@@ -56,7 +56,7 @@ const Avatar: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </>
+        </div>
     )
 }
 

@@ -102,7 +102,7 @@
         stroke: var(--avatar-stroke-color);
         stroke-width: 1px;
 
-        animation: float 6s ease-in-out infinite;
+
         /* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
         transform: translateY(0px);
     }
@@ -117,6 +117,10 @@
             filter: drop-shadow(0px 10px 30px var(--avatar-shadow-color));
         }
     }
+    .avatar-container {
+        @apply absolute left-0 right-0 m-auto;
+        animation: float 6s ease-in-out infinite;
+    }
     .avatar-fills {
         --drop-shadow: 10px;
         @apply absolute z-20 w-[var(--avatar-width)] left-0 right-0 m-auto;
@@ -124,7 +128,7 @@
         stroke: var(--avatar-fill-stroke-color);
         stroke-width: 0px;
         filter: drop-shadow(0px 10px 30px var(--avatar-shadow-color));
-        animation: float 6s ease-in-out infinite, shadow-scale 6s ease-in infinite;
+        animation: shadow-scale 6s ease-in infinite;
         /* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
         transform: translateY(0px);
     }

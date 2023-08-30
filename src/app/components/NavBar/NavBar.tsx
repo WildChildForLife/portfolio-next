@@ -10,11 +10,13 @@ import { intersectionObserver } from './observers';
 const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
     const [currentRoute, setCurrentRoute] = useState('home');
 
+    // When scrolling, change the current route
     useEffect(() => {
         let observerParams = { 
             rootMargin: '-20px 0px -20px 0px',
             threshold: 0.8 
         };
+
         const observer = intersectionObserver.initObserver(observerParams, (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -24,20 +26,14 @@ const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
             });
         })
         
-        Object.values(routes).map((route) => {
-            const element = document.getElementById(route);
-            if (element) {
-                intersectionObserver.startObserving(observer, element);
-            }
-        });
+        const routesElements = Object.values(routes).map((route) => document.getElementById(route));
+
+        // Start Observing Routes
+        routesElements.forEach((element) => (element) ? intersectionObserver.startObserving(observer, element) : null);
 
         return () => {
-            Object.values(routes).map((route) => {
-                const element = document.getElementById(route);
-                if (element) {
-                    intersectionObserver.stopObserving(observer, element);
-                }
-            })
+            // Stop Observing Routes
+            routesElements.forEach((element) => (element) ? intersectionObserver.stopObserving(observer, element) : null);
         }
     }, []);
 
@@ -48,6 +44,7 @@ const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
     //     restDelta: 0.001
     // });
 
+    // Click on Link and Scroll to Section
     const scrollIntoView = (id: string) => {
         const element = document.getElementById(id);
         const headerHeight = document.getElementsByTagName('header')[0].clientHeight;
@@ -125,7 +122,6 @@ const getNavBarLink: React.FC<NavBarLinkPropsType> = ({
     currentRoute, 
     onClickFn,
 }) => {
-    console.log('CURRENT ROUTE ', currentRoute, 'PATH', path);
     return (
         <Link scroll={false} href={`#${path}`} className={currentRoute === path ? 'active' : ''} onClick={() => onClickFn(path)}>{name}</Link>
     )
