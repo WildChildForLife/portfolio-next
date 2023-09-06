@@ -1,4 +1,4 @@
-import ArticlePropsType from "@/app/types/props/ArticlePropsType";
+import { ArticlePropsType } from "@/app/types/props";
 import Image from "next/image";
 import Link from "next/link";
 

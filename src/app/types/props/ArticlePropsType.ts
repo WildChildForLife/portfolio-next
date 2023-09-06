@@ -1,6 +1,6 @@
 import { ComponentType } from "react";
 
-type ArticlePropsType = ComponentType<'article'> & {
+type ArticlePropsType = {
     title: string;
     publishedAt: string;
     link: string;
