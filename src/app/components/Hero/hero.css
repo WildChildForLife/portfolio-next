@@ -1,5 +1,18 @@
 :root {
+    --hello-line-width: 100px;
+
     --avatar-width: 400px;
+
+    --blob-small-size: 8rem;
+    --blob-medium-size: 10rem;
+    --blob-large-size: 20rem;
+
+    --circle-width: calc(var(--avatar-width) / 1.5);
+    --rotation-duration: 10s;
+    --margin-icons-spinning: calc(var(--avatar-width) / 10);
+    --icons-size: calc(var(--avatar-width) / 10);
+
+    --radius-spinning: calc(((var(--circle-width) / 2) + var(--margin-icons-spinning)) * -1);
 
     --avatar-bg-circle-color: theme('colors.lightGray');
     --avatar-stroke-color: theme('colors.dark');
@@ -24,7 +37,7 @@
 }
 
 .hero-section {
-    @apply h-[100svh]
+    @apply min-h-[100dvh]
     flex align-middle items-center;
 }
 
@@ -36,13 +49,6 @@
         transform: translateY(100px);
     }
     .technologies {
-        --circle-width: 250px;
-        --rotation-duration: 10s;
-        --margin-icons-spinning: 40px;
-        --icons-size: 40px;
-
-        --radius-spinning: calc(((var(--circle-width) / 2) + var(--margin-icons-spinning)) * -1);
-
         @apply w-[var(--circle-width)] m-auto w-fit;
     }
         .technologies::after {
@@ -138,25 +144,30 @@
     @apply text-[var(--text-color)] w-full;
 }
     .heading {
-        @apply -translate-y-[100px]
+        @apply -translate-y-[6rem]
     }
 
         .heading > span {
-            @apply 
-                block 
-                text-[2rem] tracking-wider 
-                    after:border-b-2 after:border-b-[var(--text-color)]
-                    after:inline-block
-                    after:h-2 after:w-[100px]
+            @apply block tracking-wider;
+
+            font-size: clamp(1.3rem, 2vw, 2rem);
         }
+            .heading > span::after {
+                content: '';
+                @apply border-b-2 border-b-[var(--text-color)]
+                inline-block
+                h-2 w-[var(--hello-line-width)];
+            }
 
         .heading h1 {
-            @apply text-[4rem] font-bold tracking-tight;
+            @apply font-bold tracking-tight;
+            font-size: clamp(2rem, 3.5vw, 4rem);
         }
 
         .heading p {
             @apply text-[1.3rem];
             mix-blend-mode: color-burn;
+            font-size: clamp(1rem, 1.8vw, 1.3rem);
         }
 
         .heading .call-to-action {
@@ -169,21 +180,21 @@
         --fill: theme('colors.secondary');
 }
     .blob-small {
-        @apply w-[100px] top-1/3 left-1/4;
+        @apply w-[var(--blob-small-size)] top-1/3 left-1/4;
         --time: 50s;
         --amount: 10;
         --from: 0deg;
         --to: 360deg;
     }
     .blob-medium {
-        @apply w-[300px] top-1/2 left-20;
+        @apply w-[var(--blob-medium-size)] top-0 right-1/3;
         --time: 35s;
         --amount: 15;
         --from: 360deg;
         --to: 0deg;
     }
     .blob-large {
-        @apply w-[200px] top-0 right-1/3;
+        @apply w-[var(--blob-large-size)] top-1/2 left-20;
         --time: 90s;
         --amount: 15;
         --from: 0deg;
@@ -214,3 +225,68 @@
             opacity: 0;
         }
     }
+
+
+@media (max-width: 1540px) {
+    :root {
+        --avatar-width: 350px;
+    }
+    /* .heading h1 {
+        @apply text-[3.5rem];
+    } */
+}
+@media (max-width: 1280px) {
+    :root {
+        --avatar-width: 300px;
+
+        --blob-small-size: 6rem;
+        --blob-medium-size: 8rem;
+        --blob-large-size: 18rem;
+    }
+    /* .heading h1 { @apply text-[3rem] } */
+
+    .technologies-container { transform: translateY(200px) }
+}
+
+@media (max-width: 925px) {
+    :root {
+        --avatar-width: 250px;
+
+        --blob-small-size: 4rem;
+        --blob-medium-size: 8rem;
+        --blob-large-size: 12rem;
+    }
+    .hero-section {
+        @apply flex-col justify-center;
+    }
+    .scroller {
+        display: none;
+    }
+    .technologies-container {
+        transform: translateY(-30px);
+    }
+    .heading {
+        transform: translateY(-100px);
+        @apply text-center;
+    }
+    .heading .call-to-action {
+        @apply justify-center mt-6;
+    }
+}
+
+@media (max-width: 675px) {
+    :root {
+        --blob-large-size: 4rem;
+        --blob-medium-size: 8rem;
+        --blob-small-size: 5rem;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 850px) {
+    .heading {
+        @apply translate-y-0;
+    }
+    .technologies-container {
+        @apply translate-y-10;
+    }
+}

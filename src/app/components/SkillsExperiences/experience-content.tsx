@@ -1,5 +1,5 @@
 import { IconsMappedType } from "@/app/fragments/Icon/IconTypes";
-import { ExperienceType } from "@/app/types/ExperienceType";
+import { ExperienceType } from "@/app/types";
 
 export const availableIcons = [
     'AWS',
@@ -475,13 +475,13 @@ export const experiences: ExperienceType[] = [{
     role: 'Sr. Web Architect',
     time: '2020 - Current',
     description: [
-        'Managed various projects for clients like BNP Paribas, TotalEnergies, EI-Technologies, and Grassavoye (WTW) as a Sr. Manager / Solution Architect at Cognizant.',
-        'Led a Scrum Team in building a financial system for BNP Paribas using Angular and Java, ensuring adherence to best practices and scalability.',
-        'Conducted technology cartography, system integration, and workload assessment for proposed solutions on pre-sales for TotalEnergies and EI-Technologies.',
-        'Integrated Salesforce ecosystem with a NodeJS backend and React frontend, hosted on AWS for EI-Technologies.',
-        'Designed an offline Angular app for Grassavoye that communicated via Bluetooth, prioritizing data security with encryption and secure protocols.',
-        'Managed and coached teams horizontally, handling recruitment and preparing technical tests for new hires.',
-        'Demonstrated expertise in various technologies, architectural design, and best practices, delivering innovative and robust solutions to clients.'
+        "Managed various projects for clients like BNP Paribas, TotalEnergies, EI-Technologies, and Grassavoye (WTW) as a Sr. Manager / Solution Architect at Cognizant",
+        "Led a Scrum Team in building a financial system for BNP Paribas using Angular and Java, ensuring adherence to best practices and scalability",
+        "Conducted technology cartography, system integration, and workload assessment for proposed solutions on pre-sales for TotalEnergies and EI-Technologies",
+        "Integrated Salesforce ecosystem with a NodeJS backend and React frontend, hosted on AWS for EI-Technologies",
+        "Designed an offline Angular app for Grassavoye that communicated via Bluetooth, prioritizing data security with encryption and secure protocols",
+        "Managed and coached teams horizontally, handling recruitment and preparing technical tests for new hires",
+        "Demonstrated expertise in various technologies, architectural design, and best practices, delivering innovative and robust solutions to clients"
     ],
     skills: [
         'AWS', 
@@ -500,12 +500,12 @@ export const experiences: ExperienceType[] = [{
     role: 'Technical Lead Full-Stack / Architect',
     time: '2018 - 2020',
     description: [
-        'Led the development of a V3 authentication ecosystem with a focus on building an Identity Provider (IdP) using NodeJS, oAuth2, and OpenID Connect.',
-        'Spearheaded the architectural design discussions, defining the interaction flows, token exchange mechanisms, and security protocols for the IdP.',
-        'Led the NodeJS development team, implementing robust authentication and token generation logic adhering to oAuth2 and OpenID Connect standards.',
-        'Oversaw the integration of the Identity Provider with Kubernetes, utilizing Docker for containerization and efficient application management.',
-        'Ensured the implementation of secure authentication flows, including handling authorization codes, refresh tokens, and token revocation to address security challenges.',
-        'Designed the Identity Provider to scale horizontally to accommodate the large user base of Le Groupe La Poste and implemented load balancing mechanisms for even traffic distribution.'
+        "Led the development of a V3 authentication ecosystem with a focus on building an Identity Provider (IdP) using NodeJS, oAuth2, and OpenID Connect",
+        "Spearheaded the architectural design discussions, defining the interaction flows, token exchange mechanisms, and security protocols for the IdP",
+        "Led the NodeJS development team, implementing robust authentication and token generation logic adhering to oAuth2 and OpenID Connect standards",
+        "Oversaw the integration of the Identity Provider with Kubernetes, utilizing Docker for containerization and efficient application management",
+        "Ensured the implementation of secure authentication flows, including handling authorization codes, refresh tokens, and token revocation to address security challenges",
+        "Designed the Identity Provider to scale horizontally to accommodate the large user base of Le Groupe La Poste and implemented load balancing mechanisms for even traffic distribution"
     ],
     skills: [
         'Identity-Provider',
@@ -526,19 +526,19 @@ export const experiences: ExperienceType[] = [{
     role: 'Sr. Web Application Developer',
     time: '2017 - 2018',
     description: [
-        'Full-Stack Web Development: Using PHP with Symfony 3 framework, I contributed to the end-to-end development of the distributed financial asset management application.',
-        'Database Management: Proficiently working with MySQL, ElasticSearch, and Solr to optimize data storage, retrieval, and search functionalities.',
-        'API Development: Creating robust and efficient RESTful APIs to facilitate seamless communication between different components of the application.',
-        'Front-End Technologies: Implementing dynamic user interfaces using Twig, CSS, and JavaScript to enhance user experience and interactivity.',
-        'Infrastructure and Deployment: Managing the infrastructure and implementing efficient deployment processes for the application.',
-        'Continuous Integration and Continuous Deployment (CI/CD): Using Jenkins and best practices to automate testing, integration, and deployment pipelines.',
-        'Best Practices: Employing industry best practices for code quality, security, and performance optimization.',
-        'Collaboration: Collaborating with cross-functional teams, including designers, project managers, and business stakeholders, to ensure successful project delivery.',
-        'Performance Optimization: Implementing advanced techniques to optimize the application\'s performance and response times.',
-        'Data Analytics and Reporting: Developing features for data analytics and generating comprehensive reports for financial asset management.',
-        'Version Control: Using Git for efficient version control and code collaboration within the development team.',
-        'Problem-Solving and Troubleshooting: Diagnosing and resolving technical issues to ensure the application\'s stability and reliability.',
-        'Documentation: Creating detailed technical documentation for various components of the application.'
+        "Full-Stack Web Development: Using PHP with Symfony 3 framework, I contributed to the end-to-end development of the distributed financial asset management application",
+        "Database Management: Proficiently working with MySQL, ElasticSearch, and Solr to optimize data storage, retrieval, and search functionalities",
+        "API Development: Creating robust and efficient RESTful APIs to facilitate seamless communication between different components of the application",
+        "Front-End Technologies: Implementing dynamic user interfaces using Twig, CSS, and JavaScript to enhance user experience and interactivity",
+        "Infrastructure and Deployment: Managing the infrastructure and implementing efficient deployment processes for the application",
+        "Continuous Integration and Continuous Deployment (CI/CD): Using Jenkins and best practices to automate testing, integration, and deployment pipelines",
+        "Best Practices: Employing industry best practices for code quality, security, and performance optimization",
+        "Collaboration: Collaborating with cross-functional teams, including designers, project managers, and business stakeholders, to ensure successful project delivery",
+        "Performance Optimization: Implementing advanced techniques to optimize the application's performance and response times",
+        "Data Analytics and Reporting: Developing features for data analytics and generating comprehensive reports for financial asset management",
+        "Version Control: Using Git for efficient version control and code collaboration within the development team",
+        "Problem-Solving and Troubleshooting: Diagnosing and resolving technical issues to ensure the application's stability and reliability",
+        "Documentation: Creating detailed technical documentation for various components of the application"
     ],
     skills: [
         'Git',
@@ -565,24 +565,24 @@ export const experiences: ExperienceType[] = [{
     role: 'CTO',
     time: '2014 - 2016',
     description: [
-        "Developing and executing the company's technology strategy aligned with business goals.",
-        "Providing technical leadership and fostering a culture of innovation and collaboration.",
-        "Overseeing project management, ensuring timely and budget-compliant project delivery.",
-        "Recruiting and managing technical resources for project teams.",
-        "Managing the company's IT infrastructure and optimizing deployment processes.",
-        "Ensuring adherence to industry best practices, coding standards, and data security protocols.",
-        "Evaluating and managing technology vendors and third-party service providers.",
-        "Collaborating with clients to understand requirements and provide technical expertise.",
-        "Staying updated with the latest technological trends and innovations.",
-        "Collaborating on budget allocation for technology projects.",
-        "Ensuring data security, privacy compliance, and disaster recovery planning.",
-        "Documenting technical processes and maintaining quality assurance.",
-        "Identifying areas for performance optimization in systems and applications.",
-        "Mitigating potential technical risks and developing risk mitigation strategies.",
-        "Exploring partnerships and collaborations to expand the company's offerings.",
-        "Evaluating emerging technologies for potential impact on products and services.",
-        "Ensuring compliance with relevant technology-related regulations.",
-        "Providing mentorship, training, and professional development for the technical team.",
+        "Developing and executing the company's technology strategy aligned with business goals",
+        "Providing technical leadership and fostering a culture of innovation and collaboration",
+        "Overseeing project management, ensuring timely and budget-compliant project delivery",
+        "Recruiting and managing technical resources for project teams",
+        "Managing the company's IT infrastructure and optimizing deployment processes",
+        "Ensuring adherence to industry best practices, coding standards, and data security protocols",
+        "Evaluating and managing technology vendors and third-party service providers",
+        "Collaborating with clients to understand requirements and provide technical expertise",
+        "Staying updated with the latest technological trends and innovations",
+        "Collaborating on budget allocation for technology projects",
+        "Ensuring data security, privacy compliance, and disaster recovery planning",
+        "Documenting technical processes and maintaining quality assurance",
+        "Identifying areas for performance optimization in systems and applications",
+        "Mitigating potential technical risks and developing risk mitigation strategies",
+        "Exploring partnerships and collaborations to expand the company's offerings",
+        "Evaluating emerging technologies for potential impact on products and services",
+        "Ensuring compliance with relevant technology-related regulations",
+        "Providing mentorship, training, and professional development for the technical team",
     ],
     skills: [
         'Technology-Strategy',
@@ -612,12 +612,13 @@ export const experiences: ExperienceType[] = [{
     role: 'PHP Web Developer',
     time: '2012 - 2014',
     description: [
-        "Developed a dynamic campaign ad mail system at Neo-Data, enabling clients to design and schedule email campaigns with personalized content based on user interactions and preferences.",
-        "Built the back-end of the ad mail system using a home-made PHP framework, creating APIs for client authentication, email list management, and content personalization based on user data stored in the MySQL database.",
-        "Integrated the front-end with the back-end, allowing clients to design email templates using HTML, CSS, and dynamic placeholders for personalized content. Implemented real-time validation and improved user interaction using JavaScript and jQuery.",
-        "Implemented features for clients to schedule campaigns for specific dates and times, along with reporting functionalities to track email open rates, click-through rates, and other key performance indicators (KPIs).",
-        "Addressed scalability and performance challenges by optimizing database queries, implementing caching mechanisms, and fine-tuning the server infrastructure.",
-        "Improved email deliverability by integrating SPF, DKIM, and DMARC authentication protocols. Implemented spam prevention measures to ensure compliance with anti-spam regulations."
+        "Developed a dynamic campaign ad mail system at Neo-Data, enabling clients to design and schedule email campaigns with personalized content based on user interactions and preferences",
+        "Built the back-end of the ad mail system using a home-made PHP framework, creating APIs for client authentication, email list management, and content personalization based on user data stored in the MySQL database",
+        "Integrated the front-end with the back-end, allowing clients to design email templates using HTML, CSS, and dynamic placeholders for personalized content.",
+        "Implemented real-time validation and improved user interaction using JavaScript and jQuery",
+        "Implemented features for clients to schedule campaigns for specific dates and times, along with reporting functionalities to track email open rates, click-through rates, and other key performance indicators (KPIs)",
+        "Addressed scalability and performance challenges by optimizing database queries, implementing caching mechanisms, and fine-tuning the server infrastructure",
+        "Improved email deliverability by integrating SPF, DKIM, and DMARC authentication protocols. Implemented spam prevention measures to ensure compliance with anti-spam regulations"
     ],
     skills: [
         'Mailing-System',
@@ -643,12 +644,12 @@ export const experiences: ExperienceType[] = [{
     role: 'CEO',
     time: '2011 - 2013',
     description: [
-        "Led the development of a corporate website for a manufacturing company at HighDesign, focusing on showcasing products, services, capabilities, and commitment to innovation.",
-        "Acquired the client by presenting services and gathering specific website requirements through detailed discussions as the CEO.",
-        "Designed and developed the website's front-end using HTML, CSS, and jQuery, ensuring a user-friendly interface and appealing aesthetics.",
-        "Maintained open communication with the client throughout the development process, seeking feedback, and iteratively incorporating suggestions for client satisfaction.",
-        "Managed time and resources effectively as a one-person team, setting realistic timelines and prioritizing tasks for timely delivery.",
-        "Balanced business operations and coding responsibilities by delegating non-technical tasks, allowing a focus on the technical aspects of the project.",
+        "Led the development of a corporate website for a manufacturing company at HighDesign, focusing on showcasing products, services, capabilities, and commitment to innovation",
+        "Acquired the client by presenting services and gathering specific website requirements through detailed discussions as the CEO",
+        "Designed and developed the website's front-end using HTML, CSS, and jQuery, ensuring a user-friendly interface and appealing aesthetics",
+        "Maintained open communication with the client throughout the development process, seeking feedback, and iteratively incorporating suggestions for client satisfaction",
+        "Managed time and resources effectively as a one-person team, setting realistic timelines and prioritizing tasks for timely delivery",
+        "Balanced business operations and coding responsibilities by delegating non-technical tasks, allowing a focus on the technical aspects of the project",
     ],
     skills: [
         'Product-Showcase',
@@ -671,11 +672,11 @@ export const experiences: ExperienceType[] = [{
     role: 'Front-End Developer',
     time: '2010 - 2012',
     description: [
-        "Developed an E-Commerce website for a high-end fashion boutique at Actisens, aiming for a visually stunning and user-friendly platform to showcase products and facilitate online purchases.",
-        "Translated complex UI mockups into pixel-perfect web pages using HTML and CSS, ensuring the website reflected the boutique's brand identity and maintained consistency.",
-        "Implemented a jQuery-powered interactive product showcase, enabling users to view product details and zoom in on images for a closer look, with smooth transitions and animations for an enhanced user experience.",
-        "Integrated the website with the Joomla content management system, allowing boutique staff to efficiently manage product inventory, update content, and process orders.",
-        "Addressed the challenge of performance optimization by optimizing image file sizes without compromising quality and using CSS sprites, minified JavaScript, and CSS files to reduce load times."
+        "Developed an E-Commerce website for a high-end fashion boutique at Actisens, aiming for a visually stunning and user-friendly platform to showcase products and facilitate online purchases",
+        "Translated complex UI mockups into pixel-perfect web pages using HTML and CSS, ensuring the website reflected the boutique's brand identity and maintained consistency",
+        "Implemented a jQuery-powered interactive product showcase, enabling users to view product details and zoom in on images for a closer look, with smooth transitions and animations for an enhanced user experience",
+        "Integrated the website with the Joomla content management system, allowing boutique staff to efficiently manage product inventory, update content, and process orders",
+        "Addressed the challenge of performance optimization by optimizing image file sizes without compromising quality and using CSS sprites, minified JavaScript, and CSS files to reduce load times"
     ],
     skills: [
         'E-Commerce',

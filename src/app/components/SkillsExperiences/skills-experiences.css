@@ -14,6 +14,7 @@
 
     --tags-bg-color: theme('colors.secondary');
     --tags-text-color: theme('colors.dark');
+    --tags-icon-color: theme('colors.dark');
 }
 
 .dark {
@@ -29,9 +30,6 @@
     --exp-selector-logo-fill-color: theme('colors.light');
     --exp-selector-logo-stroke-color-hover: theme('colors.dark');
     --exp-selector-logo-fill-color-hover: theme('colors.dark');
-
-    --tags-bg-color: theme('colors.secondary');
-    --tags-text-color: theme('colors.dark');
 }
 
 .blockquote {
@@ -61,9 +59,9 @@
     .list-experiences {
         @apply flex flex-col gap-2;
     }
-        .list-experiences li {
+        .list-experiences > li {
             @apply flex p-4 gap-5 justify-between
-            min-w-[410px]
+            min-w-[26rem]
             text-[var(--exp-selector-text-color)] bg-[var(--exp-selector-bg-color)] border-[1px] border-[var(--exp-selector-border-color)] rounded-md
             cursor-pointer;
         }
@@ -73,12 +71,12 @@
                 .list-experiences .experience .company {
                     @apply flex flex-col gap-2;
                 }
-            .list-experiences li img,
-            .list-experiences li svg {
+            .list-experiences .experience img,
+            .list-experiences .experience svg {
                 @apply self-start w-[40px];
                 object-fit: contain;
             }
-                .list-experiences li svg path {
+                .list-experiences .experience svg path {
                     stroke: var(--exp-selector-logo-stroke-color);
                     fill: var(--exp-selector-logo-fill-color)
                 }
@@ -94,12 +92,12 @@
             .list-experiences li time {
                 @apply self-center;
             }
-        .list-experiences li:hover,
-        .list-experiences li.active {
+        .list-experiences > li:hover,
+        .list-experiences > li.active {
             @apply bg-[var(--exp-selector-bg-color-hover)] text-[var(--exp-selector-text-color-hover)] border-[var(--exp-selector-border-color-hover)];
         }
-        .list-experiences li:hover svg path,
-        .list-experiences li.active svg path {
+        .list-experiences li:hover .experience svg path,
+        .list-experiences li.active .experience svg path {
             stroke: var(--exp-selector-logo-stroke-color-hover);
             fill: var(--exp-selector-logo-fill-color-hover)
         }
@@ -119,6 +117,54 @@
             text-xs p-[6px] pr-[9px]
             bg-[var(--tags-bg-color)] text-[var(--tags-text-color)] rounded-xl;
         }
-            .tags li svg {
+            .tags svg.tag-icon {
                 @apply min-h-full min-w-[20px]
             }
+                .tags svg.tag-icon path {
+                    stroke: var(--tags-icon-color);
+                }
+
+.list-experiences .experience-description {
+    display: none;
+}
+
+.experience-selector {
+    @apply flex justify-between w-full;
+}
+
+@media (max-width: 1575px) {
+    .experiences {
+        @apply gap-14;
+    }
+}
+@media (max-width: 1280px) {
+    .list-experiences > li {
+        @apply w-[24rem] min-w-fit;
+    }
+}
+@media (max-width: 1024px) {
+    .list-experiences {
+        @apply w-[100%];
+    }
+    .list-experiences > li {
+        @apply grid gap-0 justify-stretch w-full;
+        grid-template-rows: max-content 0fr;
+        transition: grid-template-rows .2s ease-in-out;
+    }
+    .experiences {
+        gap: 0;
+    }
+    .experience-description {
+        display: none;
+    }
+    .list-experiences .experience-description {
+        @apply block p-0 overflow-hidden;
+    }
+
+    .list-experiences > li.active {
+        grid-template-rows: max-content 1fr;
+    }
+    .list-experiences > li.active .experience-description {
+        @apply p-4 mt-4;
+    }
+}

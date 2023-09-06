@@ -18,6 +18,7 @@ import * as Go from "react-icons/go";
 import * as Gi from "react-icons/gi";
 import * as Pi from "react-icons/pi";
 import * as Di from "react-icons/di";
+import * as Rx from "react-icons/rx";
 import { IconTypesType } from "./IconTypes";
 import dynamic from "next/dynamic";
 import { GetServerSideProps } from "next";
@@ -56,7 +57,8 @@ const Icon: React.FC<IconLibraryPropsType> = ({ type, code, className }) => {
         ['pi', (Pi as IconLibraryType)],
         ['di', (Di as IconLibraryType)],
         ['bs', (Bs as IconLibraryType)],
-        ['md', (Md as IconLibraryType)]
+        ['md', (Md as IconLibraryType)],
+        ['rx', (Rx as IconLibraryType)]
     ]);
 
     const IconComponent: ComponentType<any> = (libraries.get(type) as IconLibraryType)[code];

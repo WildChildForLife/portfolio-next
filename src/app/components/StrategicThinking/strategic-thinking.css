@@ -15,13 +15,14 @@
 
 }
     .list-cards > ul {
-        @apply flex gap-10 justify-center items-stretch;
+        @apply grid gap-10 auto-cols-max xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 justify-center items-stretch;
     }
         .list-cards > ul > li {
-            @apply border-[var(--card-border-color)] border-[1px] rounded-xl text-center p-4 w-full;
+            @apply border-[var(--card-border-color)] border-[1px] rounded-xl text-center p-4 pb-6 w-full;
         }
         .list-cards > ul > li h3 {
-            @apply mb-8 text-xl leading-none font-semibold  p-8;
+            @apply mb-8 leading-none font-semibold p-8;
+            font-size: clamp(1.2rem, 3vw, 1.25rem)
         }
         .list-cards > ul > li > ul {
             @apply flex flex-col gap-4;
@@ -36,4 +37,10 @@
                     stroke: var(--step-text-color);
                 }
     
-    
+
+@media (max-width: 639px) {
+    .list-cards > ul {
+        @apply justify-stretch;
+        grid-auto-columns: auto;
+    }
+}

@@ -1,7 +1,7 @@
-import { SectionPropsWithIdType } from "@/app/types/props";
+import { SectionWithIdPropsType } from "@/app/types/props";
 import SliderComponent from "./ArticlesSlider";
 
-const SharingIsCaring: React.FC<SectionPropsWithIdType> = ({ id }) => {
+const SharingIsCaring: React.FC<SectionWithIdPropsType> = ({ id }) => {
     return (
         <section id={id} className="sharingiscaring-section">
             <div className="container mx-auto">

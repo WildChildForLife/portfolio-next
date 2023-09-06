@@ -2,25 +2,22 @@ import { IconType } from "@/app/fragments/Icon/IconTypes";
 
 
 const availableSteps = [
-    'Analysis',
+    'Blueprinting',
     'Prototyping',
-    'Code-Review',
-    'User-Acceptance-Testing',
-    'Monitoring',
-    'Requirements',
-    'Deployment',
-    'Development',
-    'Performance',
-    'Maintenance',
-    'Design',
-    'Bug-Fixing',
-    'CI/CD',
+    'Roadmapping',
+    'Scoping',
+    'Integration',
+    'Cloud-Services',
+    'API-Design',
     'Security',
-    'Code-Refactoring',
-    'Architecture',
-    'Testing',
+    'Consulting',
+    'Presentations',
+    'Negotiations',
     'Documentation',
-    'Release-Management'
+    'Governance',
+    'Risk-Assessment',
+    'Quality-Control',
+    'Monitoring'
 ] as const;
 
 type Card = {
@@ -40,133 +37,115 @@ export const mappedStepsIcons: IconsMappedType = {
         name: 'Prototyping',
         type: 'pi',
     },
-    'Analysis': {
-        code: 'BiAnalyse',
-        name: 'Analysis',
-        type: 'bi',
+    'Blueprinting': {
+        code: 'SiBlueprint',
+        name: 'Blueprinting',
+        type: 'si',
     },
-    'Code-Review': {
-        code: 'GoCodeReview',
-        name: 'Code Review',
-        type: 'go',
+    'Roadmapping': {
+        code: 'RiRoadMapLine',
+        name: 'Roadmapping',
+        type: 'ri',
     },
-    'User-Acceptance-Testing': {
-        code: 'GrTest',
-        name: 'User Acceptance Testing',
+    'Scoping': {
+        code: 'VscOpenPreview',
+        name: 'Scoping',
+        type: 'vsc',
+    },
+    'Integration': {
+        code: 'GrIntegration',
+        name: 'Integration',
         type: 'gr',
     },
-    'Monitoring': {
-        code: 'MdMonitorHeart',
-        name: 'Monitoring',
-        type: 'md',
-    },
-    'Requirements': {
-        code: 'FaTasks',
-        name: 'Requirements',
-        type: 'fa',
-    },
-    'Deployment': {
-        code: 'AiOutlineDeploymentUnit',
-        name: 'Deployment',
-        type: 'ai',
-    },
-    'Development': {
-        code: 'BsCodeSlash',
-        name: 'Development',
+    'Cloud-Services': {
+        code: 'BsFillCloudFill',
+        name: 'Cloud Services',
         type: 'bs',
     },
-    'Performance': {
-        code: 'GrPerformance',
-        name: 'Performance',
-        type: 'gr',
+    'API-Design': {
+        code: 'AiOutlineApi',
+        name: 'API Design',
+        type: 'ai',
     },
-    'Maintenance': {
-        code: 'GrVmMaintenance',
-        name: 'Maintenance',
-        type: 'gr'
+    'Consulting': {
+        code: 'SiConsul',
+        name: 'Consulting',
+        type: 'si',
     },
-    'Design': {
-        code: 'AiOutlineAntDesign',
-        name: 'Design',
-        type: 'ai'
+    'Presentations': {
+        code: 'PiPresentationChart',
+        name: 'Presentations',
+        type: 'pi'
     },
-    'Bug-Fixing': {
-        code: 'BsBug',
-        name: 'Bug Fixing',
-        type: 'bs'
-    },
-    'CI/CD': {
-        code: 'RiLoopLeftLine',
-        name: 'CI/CD',
-        type: 'ri'
+    'Negotiations': {
+        code: 'SiHandshake',
+        name: 'Negotiations',
+        type: 'si'
     },
     'Security': {
         code: 'GrShieldSecurity',
         name: 'Security',
         type: 'gr'
     },
-    'Code-Refactoring': {
-        code: 'FaCodepen',
-        name: 'Code Refactoring',
-        type: 'fa'
-    },
-    'Architecture': {
-        code: 'MdOutlineArchitecture',
-        name: 'Architecture',
-        type: 'md'
-    },
-    'Testing': {
-        code: 'BiTestTube',
-        name: 'Testing',
-        type: 'bi'
-    },
     'Documentation': {
         code: 'GrDocumentCloud',
         name: 'Documentation',
         type: 'gr'
     },
-    'Release-Management': {
-        code: 'SiSemanticrelease',
-        name: 'Release Management',
-        type: 'si'
-    }
+    'Governance': {
+        code: 'AiOutlineCrown',
+        name: 'Governance',
+        type: 'ai'
+    },
+    'Risk-Assessment': {
+        code: 'MdOutlineAssessment',
+        name: 'Risk Assessment',
+        type: 'md'
+    },
+    'Quality-Control': {
+        code: 'AiOutlineControl',
+        name: 'Quality Control',
+        type: 'ai'
+    },
+    'Monitoring': {
+        code: 'GoStopwatch',
+        name: 'Monitoring',
+        type: 'go'
+    },
 };
 export const cards: Card[] = [{
-    title: 'Analysis',
+    title: 'Design & Planning',
     items: [
-        'Analysis',
+        'Blueprinting',
         'Prototyping',
-        'Code-Review',
-        'User-Acceptance-Testing',
-        'Monitoring'
+        'Roadmapping',
+        'Scoping'
     ]
 },
 {
-    title: 'Development',
+    title: 'Technical Expertise',
     items: [
-        'Requirements',
-        'Deployment',
-        'Development',
-        'Performance',
-        'Maintenance'
-    ]
-},
-{
-    title: 'Deployment',
-    items: [
-        'Design',
-        'Bug-Fixing',
-        'CI/CD',
+        'Integration',
+        'Cloud-Services',
+        'API-Design',
         'Security',
-        'Code-Refactoring'
     ]
 },
 {
-    title: 'Optimization',
+    title: 'Client Relations',
     items: [
-        'Architecture',
-        'Testing',
+        'Consulting',
+        'Presentations',
+        'Negotiations',
         'Documentation',
-        'Release-Management'
+    ]
+},
+{
+    title: 'Project Oversight',
+    items: [
+        'Governance',
+        'Risk-Assessment',
+        'Quality-Control',
+        'Monitoring'
     ]
 }];

@@ -2,19 +2,26 @@
 
 import { useState } from 'react';
 
-import { ExperienceType } from '@/app/types/ExperienceType';
+import { ExperienceType } from '@/app/types';
 import { experiences } from '../../components/SkillsExperiences/experience-content';
 import ExperienceSelector from '../ExperienceSelector/ExperienceSelector';
 import ExperienceDescription from '../ExperienceDescription/ExperienceDescription';
+import { motion } from 'framer-motion';
 
 const Experiences = () => {
-    const [selectedExperienceIndex, setSelectedExperienceIndex] = useState(0);
-    
+    const [selectedExperienceIndex, setSelectedExperienceIndex] = useState<null | number>(0);
+
     const handleExperienceClick = (index: number) => {
-        setSelectedExperienceIndex(index);
+        if (index === selectedExperienceIndex) {
+            setSelectedExperienceIndex(null);    
+        } else {
+            setSelectedExperienceIndex(index);
+        }
     }
-    
-    const getSelectedExperience = () => experiences[selectedExperienceIndex];
+
+    const emptyObjectFallback = { name: '', description: [], skills: [] };
+    const getSelectedExperience = (index: number | null) => (index !== null) ? experiences[index] : emptyObjectFallback;
+    const getExperienceByName = (name: string ) => experiences.find((experience: ExperienceType) => experience.name === name) ?? emptyObjectFallback;
 
     return (
         <>
@@ -23,6 +30,8 @@ const Experiences = () => {
                     <ExperienceSelector
                         key={index}
                         selectedExperienceIndex={selectedExperienceIndex}
+                        description={getExperienceByName(experience.name)?.description}
+                        skills={getExperienceByName(experience.name).skills}
                         currentIndex={index}
                         icon={experience.icon}
                         name={experience.name}
@@ -32,14 +41,22 @@ const Experiences = () => {
                     />
                 ))}
             </ul>
-            <div className="experience-description">
-                <ExperienceDescription
-                    currentIndex={selectedExperienceIndex}
-                    name={getSelectedExperience().name}
-                    description={getSelectedExperience().description}
-                    skills={getSelectedExperience().skills}
-                />
-            </div>
+            {selectedExperienceIndex !== null && 
+                <motion.div
+                    key={selectedExperienceIndex}
+                    initial={{ opacity: 0 }}
+                    animate={{ translateY: 0, opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ translateY: -100, duration: 0.8 }}
+                >
+                    <ExperienceDescription
+                        name={getSelectedExperience(selectedExperienceIndex).name}
+                        description={getSelectedExperience(selectedExperienceIndex).description}
+                        skills={getSelectedExperience(selectedExperienceIndex).skills}
+                        withTitle={true}
+                    />
+                </motion.div>
+            }
         </>
     )
 }

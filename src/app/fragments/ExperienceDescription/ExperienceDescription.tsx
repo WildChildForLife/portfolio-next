@@ -1,22 +1,15 @@
-import { motion } from "framer-motion";
 import Tag from "../Tag/Tag";
 import { IconType, AvailableTagsForIconType } from "../Icon/IconTypes";
 import { mappedTagsIcons } from "@/app/components/SkillsExperiences/experience-content";
 import { ExperienceDescriptionPropsType } from "@/app/types/props";
 import { TagAsReactElementType } from "@/app/types";
 
-const ExperienceDescription: React.FC<ExperienceDescriptionPropsType> = ({ currentIndex, name, description, skills }) => {
+const ExperienceDescription: React.FC<ExperienceDescriptionPropsType> = ({ name, description, skills, withTitle }) => {
     const tagsElements: TagAsReactElementType[] = getTags(skills);
 
     return (
-        <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0 }}
-            animate={{ translateY: 0, opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ translateY: -100, duration: 0.8 }}
-            className="description" data-experience="cognizant">
-            <h3>{name}</h3>
+        <div className="experience-description">
+            { withTitle ? <h3>{name}</h3> : null }
             <ul>
                 {description.map((description: string, index: number) => (
                     <li key={index}>{description}</li>
@@ -25,7 +18,7 @@ const ExperienceDescription: React.FC<ExperienceDescriptionPropsType> = ({ curre
             <ul className="tags">
                 {tagsElements}
             </ul>
-        </motion.div>
+        </div>
     )
 }
 

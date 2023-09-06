@@ -37,12 +37,6 @@ const sliderSettings = {
             settings: {
                 slidesToShow: 2
             }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1
-            }
         }
     ]
 }
@@ -51,7 +45,14 @@ const SliderComponent: React.FC = () => {
     return (
         <Slider {...sliderSettings}>
             {articles.map((article, index) => (
-                <Article key={index} title={article.title} publishedAt={article.publishedAt} link={article.link} sample={article.sample} imgName={article.imgName}></Article>
+                <Article 
+                    key={index} 
+                    title={article.title} 
+                    publishedAt={article.publishedAt} 
+                    link={article.link} 
+                    sample={article.sample} 
+                    imgName={article.imgName} 
+                />
             ))}
         </Slider>
     )

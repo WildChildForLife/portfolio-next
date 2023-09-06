@@ -8,7 +8,7 @@ export type TagPropsType = IconType & {
 const Tag: React.FC<TagPropsType> = ({ currentIndex, type, code, name }) => {
     return (
         <li key={currentIndex}>
-            <Icon code={code} type={type} />
+            <Icon code={code} type={type} className="tag-icon" />
             <span className="tag-name">{name}</span>
         </li> 
     )

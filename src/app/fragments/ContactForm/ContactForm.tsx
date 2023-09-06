@@ -8,25 +8,36 @@ import { ContactFormType, FormResponseType } from "@/app/types";
 import { formConstraints as constraints } from "./form-constraints";
 import { interestList } from "./interest-list";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import routes from "@/app/routes";
 
-const FORM_CONTACT_API_URI = '/api/send/contact-form';
+const FORM_CONTACT_API_URI = '/api/post/contact-form';
 
 const ContactForm: React.FC<ContactFormProps> = ({ onResponse }) => {
-    const [ HCaptchaToken, setHCaptchaToken ] = useState<string | null>(null);
-    const [ isLoading, setIsLoading ] = useState(false);
-    const [ isSent, setIsSent ] = useState(false);
+    const [HCaptchaToken, setHCaptchaToken] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isSent, setIsSent] = useState(false);
     const captchaRef = useRef<HCaptcha>(null);
-    
+
     useEffect(() => {
         if (isSent) {
             captchaRef.current?.execute();
         }
     }, [isSent])
-    
+
     const textAreaSize = {
         cols: 30,
         rows: 10
     };
+
+    const scrollBackToMessage = () => {
+        const form = document.getElementsByClassName('form-container')[0] as HTMLDivElement;
+        const headerHeight = document.getElementsByTagName('header')[0].clientHeight;
+        const extraPaddingTop = 30;
+        if (form && headerHeight) {
+            const y = form.getBoundingClientRect().top + window.scrollY - headerHeight - extraPaddingTop;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    }
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -39,6 +50,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onResponse }) => {
             });
 
             setIsLoading(false);
+            scrollBackToMessage();
+
             return;
         }
 
@@ -48,7 +61,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onResponse }) => {
             const { status, message } = await send({
                 sender: (formData.sender as HTMLInputElement).value,
                 company: (formData.company as HTMLInputElement).value,
-                email: (formData.email  as HTMLInputElement).value,
+                email: (formData.email as HTMLInputElement).value,
                 interest: (formData.interest as HTMLSelectElement).value,
                 message: (formData.message as HTMLTextAreaElement).value,
                 hcaptchaToken: HCaptchaToken
@@ -64,6 +77,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onResponse }) => {
             console.log(error);
         } finally {
             setIsLoading(false);
+            scrollBackToMessage();
         }
     }
 
@@ -121,7 +135,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onResponse }) => {
                 <label htmlFor="interest">What you are looking for</label>
                 <select className="input-field" defaultValue={'solution-architecture'} name="interest" id="interest" required>
                     {interestList.map(([tag, interest], index) => (
-                        <option key={index} value={tag}>{interest}</option>    
+                        <option key={index} value={tag}>{interest}</option>
                     ))}
                 </select>
             </div>
@@ -140,8 +154,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onResponse }) => {
             </div>
             <Captcha setHCaptchaToken={setHCaptchaToken}></Captcha>
             <div className="group-input group-submit">
-                <button type="submit">
-                    {isLoading ? 
+                <button type="submit" className={isLoading ? 'disabled' : undefined}>
+                    {isLoading ?
                         (<>Sending... <Icon type="ai" code='AiOutlineLoading3Quarters' className="loading-icon" /></>) :
                         (<>Send <Icon type="bs" code='BsFillSendCheckFill' /></>)
                     }
@@ -160,7 +174,7 @@ const send = async (data: ContactFormType): Promise<FormResponseType> => {
 
     try {
         const response = await fetch(
-            FORM_CONTACT_API_URI, 
+            FORM_CONTACT_API_URI,
             options
         );
 
@@ -168,7 +182,7 @@ const send = async (data: ContactFormType): Promise<FormResponseType> => {
 
         return (status === 'success') ? {
             status,
-            message: 'Thanks for reaching out. I will get back to you as soon as possible.'
+            message: 'Thanks for reaching out.'
         } : {
             status,
             message
@@ -178,7 +192,7 @@ const send = async (data: ContactFormType): Promise<FormResponseType> => {
             status: 'error',
             message: error.message
         }
-    }   
+    }
 }
 
 export default ContactForm;

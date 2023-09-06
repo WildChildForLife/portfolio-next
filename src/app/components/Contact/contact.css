@@ -13,7 +13,7 @@
     --form-bg-color: theme('colors.light');
     --form-border-color: theme('colors.dark');
 
-    --world-svg-stroke: theme('colors.primary');
+    --world-svg-stroke: theme('colors.secondary');
 }
 
 .dark {
@@ -28,19 +28,19 @@
     --input-field-outline-color: theme('colors.light');
     --form-bg-color: theme('colors.dark');
     --form-border-color: theme('colors.light');
-    --world-svg-stroke: theme('colors.primary');
+    --world-svg-stroke: theme('colors.secondary');
 }
 
 .contact-section {
     @apply relative bg-[var(--section-bg-color)] mb-0;
 }
-    .svg-worldmap {
-        @apply absolute inset-0 max-h-[100%] max-w-[100%];
+    .worldmap {
+        @apply absolute inset-0 max-h-[100%] max-w-[100%] object-cover;
+        filter: invert(1);
+        transition: filter .2s ease-in-out;
     }
-    .svg-worldmap path {
-        fill: none;
-        stroke: var(--world-svg-stroke);
-        stroke-width: 1px;
+    .dark .worldmap {
+        filter: none;
     }
     .contact-section .form-container {
         @apply bg-[var(--form-bg-color)] w-1/2 m-auto p-8 border border-[var(--form-border-color)] rounded-md;
@@ -66,9 +66,14 @@
         .group-submit {
             @apply col-span-1;
         }
-            .group-submit button {
-                @apply w-[300px] bg-[var(--submit-button-bg-color)] text-[var(--submit-button-text-color)] border border-[var(--submit-button-border-color)] rounded-md p-2 text-sm  mt-3;
+            .group-submit button[type="submit"] {
+                @apply bg-[var(--submit-button-bg-color)] text-[var(--submit-button-text-color)] 
+                        border border-[var(--submit-button-border-color)] rounded-md 
+                        p-3 mt-3;
                 transition: all .2s linear;
+            }
+            .group-submit button[type="submit"].disabled {
+                @apply bg-disabled pointer-events-none;
             }
             .group-submit button:hover {
                 @apply bg-[var(--submit-button-bg-color-hover)] text-[var(--submit-button-text-color-hover)] border-[var(--submit-button-border-color-hover)];
@@ -91,14 +96,29 @@
                     }
                 }
 
+#contact-form iframe {
+    @apply max-h-[4rem] max-w-[9.5rem] rounded-md
+            border-r border-b border-r-gray-200 border-b-gray-200;
+}
+
+.dark #contact-form iframe {
+
+}
+
 .title-n-error {
-    @apply flex gap-4 items-center mb-12;
+    @apply flex gap-4 items-center mb-4 flex-wrap;
 }
     .title-n-error h2 {
         @apply mb-0;
+        font-size: clamp(1.5rem, 3vw, 2.25rem);
     }
     .title-n-error svg {
         @apply inline-block ml-2;
+    }
+
+    .title-n-error + p {
+        @apply mb-12 text-disabled;
+        font-size: clamp(.8rem, 2vw, 1rem);
     }
 
 .info {
@@ -109,4 +129,39 @@
 }
 .info.success {
     @apply text-[theme('colors.success')];
+}
+
+@media (max-width: 1280px) {
+    .contact-section .form-container {
+        @apply w-[75%];
+    }
+    .contact-section .group-input {
+        grid-column: span 2 / span 2;
+    }
+    .contact-section .group-submit {
+        grid-column: span 1;
+    }
+}
+@media (max-width: 870px) {
+    .contact-section .form-container {
+        @apply w-[95%];
+    }
+    .contact-section .group-submit button[type="submit"] {
+        @apply min-w-[130px] self-end;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-section .group-submit {
+        @apply w-full;
+        grid-column: span 2;
+        justify-self: baseline;
+    }
+    .contact-section .group-submit button[type="submit"] {
+        @apply min-w-full self-end mt-0 min-w-full;
+    }
+}
+
+.no-selection {
+    width: 20px;
 }

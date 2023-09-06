@@ -39,11 +39,11 @@ const sendEmail = async (form: EmailType) => {
     }
 
     try {
-        // await fetch(WEB3_API_URL, {
-        //     method: 'POST',
-        //     body: JSON.stringify(payload),
-        //     headers: { 'Content-Type': 'application/json' }
-        // });
+        await fetch(WEB3_API_URL, {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
     } catch (error: any) {
         console.error(error.response.body);
         console.log('Error sending email');

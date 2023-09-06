@@ -54,32 +54,16 @@ div.call-to-action button:hover {
 
 h2 {
     @apply mb-10 text-4xl leading-none font-bold;
+    font-size: clamp(1.8rem, 3vw, 2.25rem);
 }
 
 section {
     @apply mb-40;
 }
 
-.theme-toggle {
-    @apply relative min-w-[80px] h-8 border border-black rounded-full cursor-pointer border-[var(--theme-toggle-border-color)];
+@media (max-width: 770px) {
+    header,
+    section {
+        @apply px-4;
+    }
 }
-    .theme-toggle::after {
-        content: '';
-        @apply absolute block left-1 top-[5px] w-5 h-5 rounded-full bg-[var(--theme-toggle-selector-color)];
-        transition: transform .2s ease-in-out;
-    }
-    .light .theme-toggle::after {
-        transform: translateX(0);
-    }
-    .dark .theme-toggle::after {
-        transform: translateX(50px);
-    }
-.theme-mode {
-    @apply absolute w-5 h-5 top-[5px];
-}
-    .dark-mode {
-        @apply left-1;
-    }
-    .light-mode {
-        @apply right-1;
-    }

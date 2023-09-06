@@ -12,7 +12,7 @@ const Captcha: React.FC<CaptchaPropsType> = ({ setHCaptchaToken }) => {
             sitekey={HCaptchaSiteKey}
             onVerify={setHCaptchaToken}
             languageOverride={'en'}
-            size="normal"
+            size="compact"
             theme={theme === 'dark' ? 'dark' : 'light'}
         />
     )

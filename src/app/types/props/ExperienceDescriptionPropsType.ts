@@ -1,7 +1,7 @@
 import ExperienceType from "../ExperienceType";
 
 type ExperienceDescriptionPropsType = Omit<ExperienceType, 'icon' | 'role' | 'time'> & {
-    currentIndex: number;
-}
+    withTitle: boolean;
+};
 
 export default ExperienceDescriptionPropsType;
