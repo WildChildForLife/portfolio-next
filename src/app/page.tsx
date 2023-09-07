@@ -4,6 +4,7 @@ import AboutMe from './components/AboutMe/AboutMe';
 import StrategicThinking from './components/StrategicThinking/StrategicThinking';
 import SharingIsCaring from './components/SharingIsCaring/SharingIsCaring';
 import SkillsExperiences from './components/SkillsExperiences/SkillsExperiences';
+import Footer from './components/Footer/Footer';
 import Contact from './components/Contact/Contact';
 import { experiences } from './components/SkillsExperiences/experience-content';
 
@@ -24,12 +25,13 @@ const App: React.FC = () => {
 
     return (
         <>
-            <Hero id={routes.Home}></Hero>
-            <AboutMe id={routes.About} yearsOfExperience={yearsOfExperience}></AboutMe>
-            <StrategicThinking id={routes.Skills}></StrategicThinking>
-            <SharingIsCaring id={routes.Blog}></SharingIsCaring>
-            <SkillsExperiences id={routes.Experience} yearsOfExperience={yearsOfExperience}></SkillsExperiences>
-            <Contact id={routes.Contact}></Contact>
+            <Hero id={routes.Home} />
+            <AboutMe id={routes.About} yearsOfExperience={yearsOfExperience} />
+            <StrategicThinking id={routes.Skills} />
+            <SharingIsCaring id={routes.Blog} />
+            <SkillsExperiences id={routes.Experience} yearsOfExperience={yearsOfExperience} />
+            <Contact id={routes.Contact} />
+            <Footer />
         </>
     )
 }

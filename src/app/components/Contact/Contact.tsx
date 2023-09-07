@@ -14,7 +14,7 @@ const Contact: React.FC<SectionWithIdPropsType> = ({ id }) => {
     
     return (
         <section id={id} className="contact-section">
-            <Image src={"/assets/world.jpg"} fill={true} alt='WorldMap' className="worldmap" />
+            <Image src={"/assets/world.jpg"} fill={true} alt="WorldMap" className="worldmap" />
             <div className="form-container">
                 <div className="title-n-error">
                     <h2>Get in touch</h2>

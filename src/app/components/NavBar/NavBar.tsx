@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { intersectionObserver } from './observers';
 import Icon from '@/app/fragments/Icon/Icon';
+import Logo from '@/app/fragments/Logo/Logo';
 
 const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
     const [currentRoute, setCurrentRoute] = useState('home');
@@ -85,15 +86,12 @@ const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
     return (
         <header className={isSticky ? 'sticking header' : 'header'}>
             <nav className="menuContainer container mx-auto">
-                <div className="logo">
-                    <span className="logo-name">Y</span>
-                    <span className='square square-1'></span>
-                    <span className='square square-2'></span>
-                    <span className='square square-3'></span>
-                </div>
+                <Logo />
                 <ul className="menu">
                     {Object.entries(routes).map(([name, path]) =>
-                        <li key={name} className={currentRoute === path ? 'active' : ''}>{getNavBarLink({ name, path, onClickFn: scrollIntoView })}</li>
+                        <li key={name} className={currentRoute === path ? 'active' : ''}>
+                            {getNavBarLink({ name, path, onClickFn: scrollIntoView })}
+                        </li>
                     )}
                 </ul>
                 <div className="right-menu">
@@ -110,6 +108,10 @@ const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
                             </Link> */}
                         <Link target='_blank' href={'https://medium.com/@youssefelgharbaoui'}>
                             <Icon code='FaMedium' type='fa' />
+                        </Link>
+
+                        <Link target='_blank' href={'https://github.com/WildChildForLife/portfolio-next'}>
+                            <Icon code='FaGithubSquare' type='fa' />
                         </Link>
                         {/* <a href="#"><i className="linkedin fab fa-linkedin"></i></a>
                             <a href="#"><i className="twitter fab fa-twitter"></i></a>

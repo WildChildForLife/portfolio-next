@@ -61,6 +61,26 @@ section {
     @apply mb-40;
 }
 
+footer {
+    @apply text-center p-4;
+}
+    footer p {
+        @apply inline-block;
+        font-size: clamp(.3rem, 3vw, .9rem);
+    }
+    footer p a {
+        @apply text-secondary;
+    }
+    footer p a:hover {
+        @apply text-primary;
+    }
+
+@media (max-width: 1122px) {
+    footer p.description {
+        @apply hidden;
+    }
+}
+
 @media (max-width: 770px) {
     header,
     section {
