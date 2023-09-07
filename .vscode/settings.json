@@ -1,4 +1,9 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
-    "css.lint.unknownAtRules": "ignore"
+    "css.lint.unknownAtRules": "ignore",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#183404",
+        "titleBar.activeBackground": "#224906",
+        "titleBar.activeForeground": "#F4FEEC"
+    }
 }
