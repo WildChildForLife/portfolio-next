@@ -32,6 +32,13 @@
     --exp-selector-logo-fill-color-hover: theme('colors.dark');
 }
 
+.skills-experiences-section h2 {
+    @apply mb-0;
+}
+    .skills-experiences-section h3 {
+        @apply mb-10 italic text-[1rem];
+        font-size: clamp(0.5rem, 3vw, 0.8rem);
+    }
 .blockquote {
     @apply relative my-5 text-sm italic text-center;
 }
