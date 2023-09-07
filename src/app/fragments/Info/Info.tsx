@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Icon from "../Icon/Icon";
-import { InfoPropsType } from "@/app/types/props/InfoPropsType";
+import { InfoPropsType } from "@/app/types/props";
 
 const Info: React.FC<InfoPropsType> = ({ status, message }) => {
     return (

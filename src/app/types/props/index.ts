@@ -6,6 +6,7 @@ import CardPropsType from "./CardPropsType";
 import ContactFormProps from "./ContactFormProps";
 import ExperienceDescriptionPropsType from "./ExperienceDescriptionPropsType";
 import ExperienceSelectorPropsType from "./ExperienceSelectorPropsType";
+import InfoPropsType from "./InfoPropsType";
 import NavBarLinkPropsType from "./NavBarLinkPropsType";
 import NavBarPropsType from "./NavBarPropsType";
 import SectionWithIdPropsType from "./SectionWithIdPropsType";
@@ -23,5 +24,6 @@ export type {
     ExperienceSelectorPropsType,
     ArticlePropsType,
     AboutMePropsType,
-    SkillsExperiencePropsType
+    SkillsExperiencePropsType,
+    InfoPropsType
 }

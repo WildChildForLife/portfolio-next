@@ -37,7 +37,7 @@ const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
             // Stop Observing Routes
             routesElements.forEach((element) => (element) ? intersectionObserver.stopObserving(observer, element) : null);
         }
-    }, []);
+    }, [routes]);
 
     // const { scrollYProgress } = useScroll();
     // const scaleX = useSpring(scrollYProgress, {
