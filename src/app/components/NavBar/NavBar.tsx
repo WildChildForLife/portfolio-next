@@ -22,7 +22,6 @@ const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
         const observer = intersectionObserver.initObserver(observerParams, (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    console.log(entry.target.id);
                     setCurrentRoute(entry.target.id);
                 }
             });
