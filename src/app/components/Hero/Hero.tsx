@@ -23,7 +23,7 @@ const Hero: React.FC<SectionWithIdPropsType> = ({ id }) => {
                     <span>Hello</span>
                     <h1>I&apos;m a <span>Solution Architect</span></h1>
                     <p>Designing the digital world, one pixel at a time.</p>
-                    <div className="call-to-action"><button>Reach out</button></div>
+                    <div className="call-to-action"><button>Download CV</button></div>
                 </div>
             </div>
             <div className="right-hero">

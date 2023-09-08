@@ -50,7 +50,7 @@ const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
     const scrollIntoView = (id: string) => {
         const element = document.getElementById(id);
         const headerHeight = document.getElementsByTagName('header')[0].clientHeight;
-        const extraPaddingTop = 10;
+        const extraPaddingTop = (id === 'contact') ? 110 : 10;
         if (element && headerHeight) {
             const y = element.getBoundingClientRect().top + window.scrollY - headerHeight - extraPaddingTop;
             window.scrollTo({ top: y, behavior: 'smooth' });
@@ -96,7 +96,7 @@ const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
                 </ul>
                 <div className="right-menu">
                     <ThemeToggle />
-                    <div className="call-to-action"><button>Reach out</button></div>
+                    <div className="call-to-action"><button onClick={() => scrollIntoView('contact')}>Reach out</button></div>
                     <div className="socials">
                         <Link target='_blank' href={'https://www.linkedin.com/in/youssef-el-gharbaoui-3785b2a8/'}>
                             <Icon code='FaLinkedin' type='fa' />

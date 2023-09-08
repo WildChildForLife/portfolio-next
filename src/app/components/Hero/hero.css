@@ -259,6 +259,9 @@
     .hero-section {
         @apply flex-col justify-center;
     }
+    .technologies .icons {
+        transform: translate(-16px, -16px);
+    }
     .scroller {
         display: none;
     }
