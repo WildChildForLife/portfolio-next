@@ -110,7 +110,7 @@
         }
 .experience-description {
 }
-    .experience-description h3 {
+    .experience-description h4 {
         @apply font-semibold text-lg mb-4;
     }
     .experience-description li {

@@ -9,7 +9,7 @@ const ExperienceDescription: React.FC<ExperienceDescriptionPropsType> = ({ name,
 
     return (
         <div className="experience-description">
-            { withTitle ? <h3>{name}</h3> : null }
+            { withTitle ? <h4>{name}</h4> : null }
             <ul>
                 {description.map((description: string, index: number) => (
                     <li key={index}>{description}</li>
