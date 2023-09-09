@@ -38,12 +38,14 @@ div.call-to-action {
     @apply text-sm my-4 flex items-center;
 }
 
-div.call-to-action button {
-    @apply border-[var(--cta-btn-border-color)] bg-[var(--cta-btn-bg-color)] text-[var(--cta-btn-color)] border-2 rounded-md py-2 px-4;
+div.call-to-action button,
+div.call-to-action a {
+    @apply block border-[var(--cta-btn-border-color)] bg-[var(--cta-btn-bg-color)] text-[var(--cta-btn-color)] border-2 rounded-md py-2 px-4;
     transition: all .3s ease-in-out;
 }
 
-div.call-to-action button:hover {
+div.call-to-action button:hover,
+div.call-to-action a:hover {
     @apply border-[var(--cta-btn-border-color)] bg-[var(--cta-btn-bg-color-hover)] text-[var(--cta-btn-color-hover)];
 }
 
@@ -74,6 +76,10 @@ footer {
     footer p a:hover {
         @apply text-primary;
     }
+
+.loading {
+    @apply w-[100dvw] h-[100dvh] bg-[red] flex justify-center align-middle;
+}
 
 @media (max-width: 1122px) {
     footer p.description {

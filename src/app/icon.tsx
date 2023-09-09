@@ -3,8 +3,6 @@ import tailwindConfig from '../../tailwind.config.js'
 
 const { theme } = resolveConfig(tailwindConfig)
 
-
-
 import { ImageResponse } from 'next/server'
 import Logo from './fragments/Logo/Logo'
 

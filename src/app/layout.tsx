@@ -5,7 +5,6 @@ import Providers from './providers'
 import routes from './routes'
 import './styles/globals.css'
 import type { Metadata } from 'next'
-import Head from 'next/head';
 
 const title = 'Youssef El Gharbaoui | Solution Architect | Portfolio';
 const description = "I'm Youssef, a Solution Architect with more than a decade of experience with a focus on Cloud and Web Technologies.";

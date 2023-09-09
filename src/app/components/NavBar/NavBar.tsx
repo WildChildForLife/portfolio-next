@@ -97,7 +97,7 @@ const NavBar: React.FC<NavBarPropsType> = ({ routes }) => {
                     <ThemeToggle />
                     <div className="call-to-action"><button onClick={() => scrollIntoView('contact')}>Reach out</button></div>
                     <div className="socials">
-                        <Link target='_blank' href={'https://www.linkedin.com/in/youssef-el-gharbaoui-3785b2a8/'}>
+                        <Link target='_blank' href={'https://www.linkedin.com/in/youssef-el-gharbaoui/'}>
                             <Icon code='FaLinkedin' type='fa' />
                         </Link>
                         {/* <Link target='_blank' href={'https://twitter.com/Yousssseffff'}>

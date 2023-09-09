@@ -6,6 +6,7 @@ import HeroIcon from '../../fragments/HeroIcons/HeroIcon';
 import { pivotingIcons } from './hero-content';
 import { IconType } from '@/app/fragments/Icon/IconTypes';
 import { SectionWithIdPropsType } from '@/app/types/props';
+import Link from 'next/link';
 
 type PivotingIconsAsReactElementType = ReactElement<IconType, any>;
 
@@ -23,7 +24,9 @@ const Hero: React.FC<SectionWithIdPropsType> = ({ id }) => {
                     <span>Hello</span>
                     <h1>I&apos;m a <span>Solution Architect</span></h1>
                     <p>Designing the digital world, one pixel at a time.</p>
-                    <div className="call-to-action"><button>Download Resume</button></div>
+                    <div className="call-to-action">
+                        <Link href="/youssef-el-gharbaoui-resume.pdf" target="_blank" download={true}>Download Resume</Link>
+                    </div>
                 </div>
             </div>
             <div className="right-hero">
