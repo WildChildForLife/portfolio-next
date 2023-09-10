@@ -25,7 +25,7 @@ const Hero: React.FC<SectionWithIdPropsType> = ({ id }) => {
                     <h1>I&apos;m a <span>Solution Architect</span></h1>
                     <p>Designing the digital world, one pixel at a time.</p>
                     <div className="call-to-action">
-                        <Link href="/youssef-el-gharbaoui-resume.pdf" target="_blank" download={true}>Download Resume</Link>
+                        <Link href="/Youssef-El-Gharbaoui-Solution-Architect-Resume.pdf" target="_blank" download={true}>Download Resume</Link>
                     </div>
                 </div>
             </div>
