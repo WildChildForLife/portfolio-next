@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio-Next: Advanced Frontend Architecture
 
-## Getting Started
+## Introduction
+This repository showcases a frontend project built with Next.js, meticulously designed and architected to adhere to the principles of clean frontend architecture and modern frontend practices.
 
-First, run the development server:
+## Design & User Experience
+- **Figma Design**: The entire project has been meticulously designed using Figma and has undergone a review by one of the leading UI/UX designers, [Habib Moussadik](https://www.behance.net/habibm).
+- **Avatar Animation**: The avatar has been artistically drawn on Figma, with path animations crafted using Framer Motion.
+- **Dynamic Icon Component**: A versatile Icon component has been developed that dynamically pulls any required icon from the "react-icons" library. An optimization thread related to this component is open on [StackOverflow](https://stackoverflow.com/questions/76876776/implement-dynamic-import-for-react-icons-in-nextjs-app).
+- **Medium SDK API**: It's noteworthy that the Medium SDK API has been deprecated, with no updates since January 2023.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Styling & Animation
+- **Tailwind CSS**: The project utilizes Tailwind in SOC separated CSS files, leveraging the `@apply` directive for a cleaner and more readable DOM.
+- **CSS-Driven Animations**: The architecture emphasizes leveraging CSS for animations and user interactions, minimizing the reliance on JavaScript for such tasks.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Code Quality & Best Practices
+- **Linting**: The project enforces code quality and styling conventions using `stylelint` and `eslint`.
+- **Reusable Components**: Emphasis has been placed on building small, reusable components to promote the DRY (Don't Repeat Yourself) principle.
+- **Modern JavaScript & TypeScript**: The codebase leverages ES6/7 features and has full TypeScript support with enforced typing.
+- **Performance**: Care has been taken to avoid importing unnecessary external libraries, ensuring the bundle size remains optimal for performance.
+- **Dynamic Assets**: The project uses auto-generated assets like dynamic favicons, opengraph images, and Twitter images, all based on reusable components.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Testing & Quality Assurance
+- **Testing**: Both unit and E2E tests are currently in progress, ensuring the robustness and reliability of the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Conclusion
+This repository embodies a blend of design and coding best practices, ensuring a clean, maintainable, and high-performance frontend architecture.
