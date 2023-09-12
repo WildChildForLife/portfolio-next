@@ -17,7 +17,7 @@ The live version of the portfolio can be accessed at [yousstack.com](https://you
 ## Code Quality & Best Practices
 - **Linting**: The project enforces code quality and styling conventions using `stylelint` and `eslint`.
 - **Reusable Components**: Emphasis has been placed on building small, reusable components to promote the DRY (Don't Repeat Yourself) principle.
-- **Modern JavaScript & TypeScript**: The codebase leverages ES6/7 features and has full TypeScript support with enforced typing.
+- **TypeScript**: The codebase leverages ES6/7 features and has full TypeScript support with enforced typing.
 - **Performance**: Care has been taken to avoid importing unnecessary external libraries, ensuring the bundle size remains optimal for performance.
 - **Dynamic Assets**: The project uses auto-generated assets like dynamic favicons, opengraph images, and Twitter images, all based on reusable components.
 
