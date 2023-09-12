@@ -2,6 +2,7 @@
 
 ## Introduction
 This repository showcases a frontend project built with Next.js, meticulously designed and architected to adhere to the principles of clean frontend architecture and modern frontend practices.
+The live version of the portfolio can be accessed at [yousstack.com](https://yousstack.com).
 
 ## Design & User Experience
 - **Figma Design**: The entire project has been meticulously designed using Figma and has undergone a review by one of the leading UI/UX designers, [Habib Moussadik](https://www.behance.net/habibm).
