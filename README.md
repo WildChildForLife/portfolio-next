@@ -6,7 +6,7 @@ The live version of the portfolio can be accessed at [yousstack.com](https://you
 
 ## Design & User Experience
 - **Figma Design**: The entire project has been meticulously designed using Figma and has undergone a review by one of the leading UI/UX designers, [Habib Moussadik](https://www.behance.net/habibm).
-- **Avatar Animation**: The avatar has been artistically drawn on Figma, with path animations crafted using Framer Motion.
+- **Avatar Animation**: The avatar has been artistically drawn on Figma, with path animations crafted using [Framer Motion](https://www.framer.com/).
 - **Dynamic Icon Component**: A versatile Icon component has been developed that dynamically pulls any required icon from the "react-icons" library. An optimization thread related to this component is open on [StackOverflow](https://stackoverflow.com/questions/76876776/implement-dynamic-import-for-react-icons-in-nextjs-app).
 - **Medium SDK API**: It's noteworthy that the Medium SDK API has been deprecated, with no updates since January 2023 [Medium API](https://github.com/Medium/medium-api-docs).
 
